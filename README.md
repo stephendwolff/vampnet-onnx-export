@@ -22,7 +22,7 @@ vampnet-onnx-export/
 │   ├── vampnet_onnx_export.ipynb         # Step-by-step export process
 │   ├── vampnet_onnx_optimization.ipynb   # Optimization and quantization
 │   └── vampnet_onnx_pipeline_test.ipynb  # End-to-end testing
-├── src/                 # Core Python modules
+├── vampnet_onnx/        # Core Python modules
 │   ├── __init__.py
 │   ├── audio_processor.py    # Audio preprocessing component
 │   ├── codec_wrapper.py      # Codec encoder/decoder wrappers
@@ -46,15 +46,20 @@ vampnet-onnx-export/
 
 ### 1. Installation
 
-**Note:** This project currently requires Python 3.9 due to VampNet dependencies. Work is pending to update VampNet for newer Python versions.
+**Note:** This project requires Python 3.11 or higher. VampNet has been updated to support Python 3.11 (using the stephendwolff fork).
 
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/vampnet-onnx-export.git
 cd vampnet-onnx-export
 
-# Install dependencies (Python 3.9)
-pip install -r requirements.txt
+# Install the package and dependencies (Python 3.11+)
+pip install -e .
+
+# Or install with optional dependencies
+pip install -e ".[dev]"  # For development
+pip install -e ".[optimization]"  # For model optimization tools
+pip install -e ".[deployment]"  # For deployment to other formats
 ```
 
 ### 2. Download Pretrained Models
@@ -67,7 +72,7 @@ Download the pretrained models from [this link](https://zenodo.org/record/813662
 ### 3. Export VampNet Models
 
 ```python
-from src.exporters import export_all_components
+from vampnet_onnx.exporters import export_all_components
 
 # Export all components with optimizations
 exported_models = export_all_components(
@@ -81,7 +86,7 @@ exported_models = export_all_components(
 ### 3. Run the ONNX Pipeline
 
 ```python
-from src.pipeline import VampNetONNXPipeline
+from vampnet_onnx.pipeline import VampNetONNXPipeline
 import numpy as np
 
 # Initialize pipeline
@@ -149,10 +154,16 @@ output_audio = results['output_audio']
    - Due to ONNX export limitations with dynamic shapes in attention
 
 2. **Simplified Components**: Uses simplified versions for some components
-   - Full DAC codec not yet exported
+   - Uses LAC codec (correctly implemented) instead of full DAC
    - Deterministic generation (no sampling)
 
-3. **Platform Constraints**: Some optimizations are hardware-specific
+3. **Transformer Weights**: The ONNX transformer uses random initialization
+   - The pretrained VampNet transformer is too complex for direct ONNX export
+   - Current ONNX transformer is a simplified architecture without pretrained weights
+   - For best quality, use hybrid approach: ONNX codec + PyTorch transformer
+   - See `notebooks/vampnet_onnx_pipeline_test.ipynb` for hybrid implementation
+
+4. **Platform Constraints**: Some optimizations are hardware-specific
    - Best performance on x86_64 CPUs
    - GPU acceleration requires additional setup
 
