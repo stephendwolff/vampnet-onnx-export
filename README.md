@@ -46,12 +46,14 @@ vampnet-onnx-export/
 
 ### 1. Installation
 
+**Note:** This project currently requires Python 3.9 due to VampNet dependencies. Work is pending to update VampNet for newer Python versions.
+
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/vampnet-onnx-export.git
 cd vampnet-onnx-export
 
-# Install dependencies
+# Install dependencies (Python 3.9)
 pip install -r requirements.txt
 ```
 
