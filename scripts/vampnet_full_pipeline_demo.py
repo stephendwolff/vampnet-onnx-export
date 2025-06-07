@@ -23,8 +23,8 @@ class VampNetFullPipeline:
         self,
         encoder_path: str = "models/codec_encoder.onnx",
         decoder_path: str = "models/codec_decoder.onnx",
-        coarse_path: str = "models/transformer.onnx",
-        c2f_path: str = "onnx_models/vampnet_c2f_transformer.onnx"
+        coarse_path: str = "onnx_models_fixed/coarse_transformer_v2.onnx",
+        c2f_path: str = "onnx_models_fixed/c2f_transformer_v2.onnx"
     ):
         print("Initializing VampNet Full Pipeline...")
         
@@ -94,13 +94,25 @@ class VampNetFullPipeline:
         mask = np.random.random((batch_size, self.n_coarse_codebooks, seq_len)) < mask_ratio
         
         # Run coarse model
-        coarse_outputs = self.coarse_session.run(
-            None,
-            {
+        # Check if model expects temperature input
+        input_names = [i.name for i in self.coarse_session.get_inputs()]
+        
+        if 'temperature' in input_names:
+            # Old model
+            temperature = np.array(1.0, dtype=np.float32)
+            inputs = {
                 'codes': coarse_codes.astype(np.int64),
-                'mask': mask.astype(np.int64)
+                'mask': mask.astype(bool),
+                'temperature': temperature
             }
-        )
+        else:
+            # New v2 model
+            inputs = {
+                'codes': coarse_codes.astype(np.int64),
+                'mask': mask.astype(bool)
+            }
+        
+        coarse_outputs = self.coarse_session.run(None, inputs)
         
         generated_coarse = coarse_outputs[0]
         print(f"✓ Generated coarse codes shape: {generated_coarse.shape}")
@@ -124,16 +136,25 @@ class VampNetFullPipeline:
         mask[:, self.n_coarse_codebooks:, :] = True  # Mask all fine codes
         
         # Run C2F model
-        temperature = np.array(1.0, dtype=np.float32)
+        # Check if model expects temperature input
+        input_names = [i.name for i in self.c2f_session.get_inputs()]
         
-        c2f_outputs = self.c2f_session.run(
-            None,
-            {
+        if 'temperature' in input_names:
+            # Old model
+            temperature = np.array(1.0, dtype=np.float32)
+            inputs = {
                 'codes': combined_codes.astype(np.int64),
-                'mask': mask.astype(np.int64),
+                'mask': mask.astype(bool),
                 'temperature': temperature
             }
-        )
+        else:
+            # New v2 model
+            inputs = {
+                'codes': combined_codes.astype(np.int64),
+                'mask': mask.astype(bool)
+            }
+        
+        c2f_outputs = self.c2f_session.run(None, inputs)
         
         generated_codes = c2f_outputs[0]
         print(f"✓ Generated complete codes shape: {generated_codes.shape}")
