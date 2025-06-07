@@ -23,8 +23,8 @@ class VampNetFullPipeline:
         self,
         encoder_path: str = "models/codec_encoder.onnx",
         decoder_path: str = "models/codec_decoder.onnx",
-        coarse_path: str = "onnx_models_fixed/coarse_transformer_v2.onnx",
-        c2f_path: str = "onnx_models_fixed/c2f_transformer_v2.onnx"
+        coarse_path: str = "onnx_models_fixed/coarse_transformer_v2_weighted.onnx",
+        c2f_path: str = "onnx_models_fixed/c2f_transformer_v2_weighted.onnx"
     ):
         print("Initializing VampNet Full Pipeline...")
         
@@ -167,6 +167,13 @@ class VampNetFullPipeline:
         
         # Ensure codes are int64
         codes = codes.astype(np.int64)
+        
+        # Handle mask tokens (1024) - decoder only accepts 0-1023
+        # Replace mask tokens with 0 (silence/padding token)
+        codes = np.where(codes == 1024, 0, codes)
+        
+        # Clip to valid range as extra safety
+        codes = np.clip(codes, 0, 1023)
         
         # Run decoder
         decoder_outputs = self.decoder_session.run(None, {'codes': codes})
