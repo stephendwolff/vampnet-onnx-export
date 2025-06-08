@@ -31,9 +31,9 @@ def export_vampnet_codec():
     # Load with specific paths to ensure we get the right model
     interface = vampnet.interface.Interface(
         device=device,
-        codec_ckpt="models/vampnet/codec.pth",
-        coarse_ckpt="models/vampnet/coarse.pth",  # Need this even though we only want codec
-        wavebeat_ckpt="models/vampnet/wavebeat.pth"
+        codec_ckpt="../models/vampnet/codec.pth",
+        coarse_ckpt="../models/vampnet/coarse.pth",  # Need this even though we only want codec
+        wavebeat_ckpt="../models/vampnet/wavebeat.pth"
     )
     
     codec_model = interface.codec

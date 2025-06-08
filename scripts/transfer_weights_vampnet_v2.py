@@ -37,16 +37,16 @@ class VampNetWeightTransfer:
         # Note: Interface doesn't take c2f_ckpt directly
         if model_type == 'coarse':
             interface = vampnet.interface.Interface(
-                codec_ckpt="models/vampnet/codec.pth",
-                coarse_ckpt="models/vampnet/coarse.pth",
-                wavebeat_ckpt="models/vampnet/wavebeat.pth",
+                codec_ckpt="../models/vampnet/codec.pth",
+                coarse_ckpt="../models/vampnet/coarse.pth",
+                wavebeat_ckpt="../models/vampnet/wavebeat.pth",
             )
         else:
             # For C2F, we need to load from checkpoint directly
             interface = vampnet.interface.Interface(
-                codec_ckpt="models/vampnet/codec.pth",
-                coarse_ckpt="models/vampnet/c2f.pth",  # Use c2f as coarse
-                wavebeat_ckpt="models/vampnet/wavebeat.pth",
+                codec_ckpt="../models/vampnet/codec.pth",
+                coarse_ckpt="../models/vampnet/c2f.pth",  # Use c2f as coarse
+                wavebeat_ckpt="../models/vampnet/wavebeat.pth",
             )
         
         # Get the appropriate model

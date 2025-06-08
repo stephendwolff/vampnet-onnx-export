@@ -18,9 +18,9 @@ def verify_weight_transfer():
     # Load VampNet coarse model
     print("1. Loading VampNet coarse model...")
     interface = vampnet.interface.Interface(
-        codec_ckpt="models/vampnet/codec.pth",
-        coarse_ckpt="models/vampnet/coarse.pth",
-        wavebeat_ckpt="models/vampnet/wavebeat.pth",
+        codec_ckpt="../models/vampnet/codec.pth",
+        coarse_ckpt="../models/vampnet/coarse.pth",
+        wavebeat_ckpt="../models/vampnet/wavebeat.pth",
     )
     
     vampnet_model = interface.coarse

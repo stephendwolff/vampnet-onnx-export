@@ -23,7 +23,7 @@ def export_c2f_transformer_v2():
     print("=== VampNet C2F Transformer V2 Export ===")
     
     # Check checkpoint
-    c2f_checkpoint_path = Path("models/vampnet/c2f.pth")
+    c2f_checkpoint_path = Path("../models/vampnet/c2f.pth")
     if c2f_checkpoint_path.exists():
         print(f"✓ Found C2F checkpoint at {c2f_checkpoint_path}")
         checkpoint = torch.load(c2f_checkpoint_path, map_location='cpu', weights_only=False)

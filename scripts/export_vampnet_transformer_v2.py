@@ -19,7 +19,29 @@ from scripts.custom_ops.rmsnorm_onnx import SimpleRMSNorm
 from scripts.custom_ops.film_onnx import SimpleFiLM
 from scripts.custom_ops.codebook_embedding_onnx import VerySimpleCodebookEmbedding
 from scripts.custom_ops.multihead_attention_onnx import OnnxMultiheadAttention
-from scripts.fix_ffn_weight_transfer import GatedFFN
+
+
+class GatedFFN(nn.Module):
+    """FFN with GatedGELU activation matching VampNet."""
+    
+    def __init__(self, d_model):
+        super().__init__()
+        self.w_1 = nn.Linear(d_model, d_model * 4)  # 1280 -> 5120
+        self.w_2 = nn.Linear(d_model * 2, d_model)  # 2560 -> 1280
+        self.activation = nn.GELU()
+        
+    def forward(self, x):
+        # Project to 4*d_model
+        hidden = self.w_1(x)
+        
+        # Split into two halves for gating
+        hidden, gate = hidden.chunk(2, dim=-1)  # Each is 2560
+        
+        # Apply gated activation
+        hidden = hidden * self.activation(gate)
+        
+        # Project back
+        return self.w_2(hidden)
 
 
 class VampNetTransformerV2(nn.Module):
