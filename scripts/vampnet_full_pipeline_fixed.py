@@ -121,11 +121,11 @@ class VampNetFullPipelineFixed:
         
         if mask_ratio > 0:
             # Create a more structured mask
-            period = max(1, int(1 / mask_ratio))
+            period = 30  #max(1, int(1 / mask_ratio))
             for i in range(seq_len):
                 if i % period != 0:  # Keep every period-th token
                     mask[:, :, i] = True
-        
+
         # Run coarse model
         inputs = {
             'codes': coarse_codes.astype(np.int64),
