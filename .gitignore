@@ -53,7 +53,7 @@ onnx_models_*/
 *.tflite
 
 # Audio files
-*.wav
+#*.wav
 *.mp3
 *.flac
 *.ogg
