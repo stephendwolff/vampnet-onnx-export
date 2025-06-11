@@ -263,8 +263,8 @@ def test_final_model(model):
     
     # Test input
     codes = torch.randint(0, 1024, (1, 4, 100))
-    mask = torch.zeros((1, 100), dtype=torch.bool)  # Boolean mask with shape (batch, seq_len)
-    mask[:, 40:60] = True
+    mask = torch.zeros((1, 4, 100), dtype=torch.bool)  # Boolean mask with shape (batch, n_codebooks, seq_len)
+    mask[:, :, 40:60] = True  # Mask all codebooks at positions 40-60
     
     try:
         with torch.no_grad():

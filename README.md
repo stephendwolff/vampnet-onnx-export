@@ -37,7 +37,12 @@ vampnet-onnx-export/
 │   └── test_quantization_fixed.py  # Quantization testing
 ├── models/              # Exported ONNX models (not in repo)
 ├── docs/                # Additional documentation
-│   └── quantization_analysis_summary.md
+│   ├── quantization_analysis_summary.md
+│   ├── onnx_generation_mismatch_analysis.md
+│   ├── weight_transfer_technical_notes.md
+│   ├── file_structure_guide.md
+│   ├── script_usage_guide.md
+│   └── model_files_overview.md
 ├── tests/               # Test files
 └── outputs/             # Sample outputs
 ```
@@ -153,17 +158,25 @@ output_audio = results['output_audio']
    - Longer sequences are automatically chunked
    - Due to ONNX export limitations with dynamic shapes in attention
 
-2. **Simplified Components**: Uses simplified versions for some components
-   - Uses LAC codec (correctly implemented) instead of full DAC
-   - Deterministic generation (no sampling)
+2. **Codec Implementation**: 
+   - Uses DAC (Descript Audio Codec) as per VampNet
+   - Pre-padded encoder achieves 97.9% token match with original VampNet
+   - Requires audio padding to multiples of 768 samples
 
-3. **Transformer Weights**: The ONNX transformer uses random initialization
-   - The pretrained VampNet transformer is too complex for direct ONNX export
-   - Current ONNX transformer is a simplified architecture without pretrained weights
-   - For best quality, use hybrid approach: ONNX codec + PyTorch transformer
-   - See `notebooks/vampnet_onnx_pipeline_test.ipynb` for hybrid implementation
+3. **Transformer Generation Quality**: ONNX transformers produce different outputs than VampNet
+   - **Root Cause**: Incomplete weight transfer (only transformer layers transferred)
+   - **Missing Components**: 
+     - Embeddings use random initialization instead of VampNet's codec-based embeddings
+     - Output classifiers have dimension mismatch (4096 vs 1025)
+   - **Impact**: Generated audio differs significantly from VampNet quality
+   - **See**: [ONNX Generation Mismatch Analysis](docs/onnx_generation_mismatch_analysis.md) for detailed analysis
 
-4. **Platform Constraints**: Some optimizations are hardware-specific
+4. **Architectural Differences**:
+   - VampNet uses codec embeddings directly; ONNX uses standard embedding tables
+   - VampNet has 4096 output classes; ONNX has 1025
+   - Special token handling differs between implementations
+
+5. **Platform Constraints**: Some optimizations are hardware-specific
    - Best performance on x86_64 CPUs
    - GPU acceleration requires additional setup
 
@@ -269,8 +282,9 @@ tflite_model = converter.convert()
 ## Future Work
 
 ### High Priority
+- [ ] Complete weight transfer from VampNet (embeddings & classifiers)
+- [ ] Match VampNet's architecture exactly (codec-based embeddings, 4096 output dims)
 - [ ] Dynamic sequence length support for transformer
-- [ ] Full DAC codec export
 - [ ] Sampling/temperature support in ONNX
 - [ ] Streaming inference for real-time applications
 

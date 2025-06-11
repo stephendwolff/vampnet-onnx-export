@@ -14,7 +14,7 @@ def test_transformer_inference():
     print("=== Testing Transformer Inference ===\n")
     
     # Test coarse transformer
-    coarse_path = "onnx_models_fixed/coarse_transformer_v2_weighted.onnx"
+    coarse_path = "scripts/onnx_models_fixed/coarse_transformer_v2_weighted.onnx"
     
     if not Path(coarse_path).exists():
         print(f"Coarse transformer not found at {coarse_path}")
@@ -82,7 +82,7 @@ def test_transformer_inference():
         
     # Test C2F transformer
     print("\n\n2. Testing C2F Transformer")
-    c2f_path = "onnx_models_fixed/c2f_transformer_v2_weighted.onnx"
+    c2f_path = "scripts/onnx_models_fixed/c2f_transformer_v2_weighted.onnx"
     
     if not Path(c2f_path).exists():
         print(f"C2F transformer not found at {c2f_path}")
