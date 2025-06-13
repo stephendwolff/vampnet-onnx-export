@@ -1,11 +1,17 @@
 """
 ONNX export functions for VampNet components.
+
+This module provides comprehensive export functionality for all VampNet components,
+including weight transfer, codec export, and transformer export with full support
+for pretrained models.
 """
 
 import torch
 import torch.onnx
 import onnx
+import onnxruntime as ort
 import os
+import logging
 from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 
@@ -14,12 +20,17 @@ from .codec_wrapper import CodecEncoder, CodecDecoder, SimplifiedCodec, Simplifi
 from .mask_generator import MaskGenerator, AdvancedMaskGenerator
 from .mask_generator_onnx import ONNXMaskGenerator, FlexibleONNXMaskGenerator
 from .transformer_wrapper import TransformerWrapper, SimplifiedVampNetModel
+from .models import CoarseTransformer, C2FTransformer
+from .weight_transfer import complete_weight_transfer
+from .embeddings import extract_and_convert_embeddings, load_embeddings_into_model
 
 # Try to import VampNet codec wrappers
 try:
     from .vampnet_codec import VampNetCodecEncoder, VampNetCodecDecoder, VAMPNET_AVAILABLE
 except ImportError:
     VAMPNET_AVAILABLE = False
+
+logger = logging.getLogger(__name__)
 
 
 def export_audio_processor(
@@ -510,8 +521,184 @@ def export_transformer(
     print("Model verification passed!")
 
 
+def export_complete_transformer(
+    checkpoint_path: str,
+    output_path: str,
+    model_type: str = "coarse",
+    codec_path: Optional[str] = None,
+    opset_version: int = 14,
+    verify_export: bool = True
+) -> Dict[str, Any]:
+    """
+    Export a complete VampNet transformer with weight transfer from checkpoint.
+    
+    Args:
+        checkpoint_path: Path to VampNet checkpoint file
+        output_path: Path to save ONNX model
+        model_type: "coarse" or "c2f" 
+        codec_path: Path to codec model for embedding extraction
+        opset_version: ONNX opset version
+        verify_export: Whether to verify the exported model
+        
+    Returns:
+        Dictionary with export results and statistics
+    """
+    logger.info(f"Exporting {model_type} transformer from {checkpoint_path}")
+    
+    # Create model based on type
+    if model_type == "coarse":
+        model = CoarseTransformer()
+    elif model_type == "c2f":
+        model = C2FTransformer()
+    else:
+        raise ValueError(f"Unknown model type: {model_type}")
+        
+    # Transfer weights from checkpoint
+    results = complete_weight_transfer(
+        checkpoint_path=checkpoint_path,
+        coarse_model=model if model_type == "coarse" else None,
+        c2f_model=model if model_type == "c2f" else None,
+        return_embeddings=True
+    )
+    
+    # Load embeddings if codec path provided
+    if codec_path and 'embeddings' in results:
+        embeddings = extract_and_convert_embeddings(
+            codec_path=codec_path,
+            model_dim=model.dim,
+            n_codebooks=model.n_codebooks
+        )
+        load_embeddings_into_model(model, embeddings)
+        
+    # Get the weighted model
+    weighted_model = results.get(f'{model_type}_model', model)
+    weighted_model.eval()
+    
+    # Example input
+    batch_size = 1
+    seq_len = 100
+    example_tokens = torch.randint(
+        0, model.vocab_size,
+        (batch_size, seq_len, model.n_codebooks),
+        dtype=torch.long
+    )
+    
+    # Export to ONNX
+    torch.onnx.export(
+        weighted_model,
+        example_tokens,
+        output_path,
+        input_names=['tokens'],
+        output_names=['logits'],
+        dynamic_axes={
+            'tokens': {0: 'batch', 1: 'sequence'},
+            'logits': {0: 'batch', 1: 'sequence'}
+        },
+        opset_version=opset_version,
+        export_params=True,
+        do_constant_folding=True
+    )
+    
+    logger.info(f"Exported {model_type} transformer to {output_path}")
+    
+    # Verify if requested
+    if verify_export:
+        onnx_model = onnx.load(output_path)
+        onnx.checker.check_model(onnx_model)
+        
+        # Test with ONNX Runtime
+        session = ort.InferenceSession(output_path)
+        ort_outputs = session.run(None, {'tokens': example_tokens.numpy()})
+        
+        logger.info(f"ONNX Runtime verification passed. Output shape: {ort_outputs[0].shape}")
+        
+    return {
+        'model_path': output_path,
+        'model_type': model_type,
+        'embeddings': results.get('embeddings'),
+        'verified': verify_export
+    }
+
+
+def export_pretrained_encoder(
+    codec_path: str,
+    output_path: str,
+    use_prepadded: bool = True,
+    opset_version: int = 14
+) -> None:
+    """
+    Export a pretrained VampNet encoder with proper weight loading.
+    
+    Args:
+        codec_path: Path to VampNet codec checkpoint
+        output_path: Path to save ONNX model
+        use_prepadded: Whether to use pre-padded encoder for fixed sizes
+        opset_version: ONNX opset version
+    """
+    if not VAMPNET_AVAILABLE:
+        raise ImportError("VampNet codec not available. Please install vampnet.")
+        
+    # Load codec
+    from lac import LAC
+    codec = LAC.load(codec_path)
+    
+    if use_prepadded:
+        # Create pre-padded encoder wrapper
+        class PrePaddedEncoder(torch.nn.Module):
+            def __init__(self, codec, target_length: int = 76800):
+                super().__init__()
+                self.codec = codec
+                self.target_length = target_length
+                
+            def forward(self, audio: torch.Tensor) -> torch.Tensor:
+                # Pad to target length
+                batch_size, channels, length = audio.shape
+                if length < self.target_length:
+                    padding = self.target_length - length
+                    audio = torch.nn.functional.pad(audio, (0, padding))
+                    
+                # Encode
+                with torch.no_grad():
+                    _, codes, _, _, _ = self.codec.encode(audio)
+                    
+                return codes.permute(0, 2, 1)  # [batch, n_codebooks, seq_len]
+                
+        model = PrePaddedEncoder(codec)
+    else:
+        model = VampNetCodecEncoder(codec_model=codec)
+        
+    model.eval()
+    
+    # Example input
+    example_audio = torch.randn(1, 1, 76800)
+    
+    # Export
+    torch.onnx.export(
+        model,
+        example_audio,
+        output_path,
+        input_names=['audio'],
+        output_names=['codes'],
+        dynamic_axes={
+            'audio': {0: 'batch'},
+            'codes': {0: 'batch'}
+        },
+        opset_version=opset_version
+    )
+    
+    logger.info(f"Exported encoder to {output_path}")
+    
+    # Verify
+    onnx_model = onnx.load(output_path)
+    onnx.checker.check_model(onnx_model)
+    logger.info("Encoder verification passed!")
+
+
 def export_all_components(
     output_dir: str = "onnx_models",
+    checkpoint_path: Optional[str] = None,
+    codec_path: Optional[str] = None,
+    export_weighted_models: bool = True,
     **kwargs
 ) -> Dict[str, str]:
     """
@@ -519,6 +706,9 @@ def export_all_components(
     
     Args:
         output_dir: Directory to save ONNX models
+        checkpoint_path: Path to VampNet checkpoint for weight transfer
+        codec_path: Path to codec model
+        export_weighted_models: Whether to export models with transferred weights
         **kwargs: Additional arguments for exporters
         
     Returns:
@@ -535,9 +725,15 @@ def export_all_components(
     exported_models['audio_processor'] = audio_processor_path
     
     # Export codec encoder
-    codec_encoder_path = os.path.join(output_dir, "codec_encoder.onnx")
-    export_codec_encoder(codec_encoder_path, **kwargs.get('codec_encoder', {}))
-    exported_models['codec_encoder'] = codec_encoder_path
+    if codec_path and export_weighted_models:
+        # Export pretrained encoder
+        encoder_path = os.path.join(output_dir, "vampnet_encoder_pretrained.onnx")
+        export_pretrained_encoder(codec_path, encoder_path)
+        exported_models['codec_encoder'] = encoder_path
+    else:
+        codec_encoder_path = os.path.join(output_dir, "codec_encoder.onnx")
+        export_codec_encoder(codec_encoder_path, **kwargs.get('codec_encoder', {}))
+        exported_models['codec_encoder'] = codec_encoder_path
     
     # Export codec decoder
     codec_decoder_path = os.path.join(output_dir, "codec_decoder.onnx")
@@ -549,10 +745,32 @@ def export_all_components(
     export_mask_generator(mask_generator_path, **kwargs.get('mask_generator', {}))
     exported_models['mask_generator'] = mask_generator_path
     
-    # Export transformer
-    transformer_path = os.path.join(output_dir, "transformer.onnx")
-    export_transformer(transformer_path, **kwargs.get('transformer', {}))
-    exported_models['transformer'] = transformer_path
+    # Export transformers with weights if checkpoint provided
+    if checkpoint_path and export_weighted_models:
+        # Export coarse transformer
+        coarse_path = os.path.join(output_dir, "coarse_transformer_weighted.onnx")
+        export_complete_transformer(
+            checkpoint_path=checkpoint_path,
+            output_path=coarse_path,
+            model_type="coarse",
+            codec_path=codec_path
+        )
+        exported_models['coarse_transformer'] = coarse_path
+        
+        # Export C2F transformer
+        c2f_path = os.path.join(output_dir, "c2f_transformer_weighted.onnx")
+        export_complete_transformer(
+            checkpoint_path=checkpoint_path,
+            output_path=c2f_path,
+            model_type="c2f",
+            codec_path=codec_path
+        )
+        exported_models['c2f_transformer'] = c2f_path
+    else:
+        # Export regular transformer
+        transformer_path = os.path.join(output_dir, "transformer.onnx")
+        export_transformer(transformer_path, **kwargs.get('transformer', {}))
+        exported_models['transformer'] = transformer_path
     
     print(f"\nAll models exported to {output_dir}")
     return exported_models

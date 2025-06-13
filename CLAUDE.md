@@ -45,28 +45,61 @@ mypy vampnet_onnx/                   # Type checking
 python scripts/cleanup_models_auto.py  # Clean up old models
 ```
 
-## Key Export Scripts (Current Versions - V3)
+## Python API Usage (New)
+
+The functionality from scripts has been integrated into the main `vampnet_onnx` package:
+
+```python
+from vampnet_onnx import (
+    # Export functions
+    export_audio_processor,
+    export_codec_encoder,
+    export_codec_decoder,
+    export_mask_generator,
+    export_complete_transformer,
+    export_pretrained_encoder,
+    export_all_components,
+    
+    # Models
+    CoarseTransformer,
+    C2FTransformer,
+    
+    # Weight transfer
+    WeightTransferManager,
+    complete_weight_transfer,
+    
+    # Embeddings
+    extract_and_convert_embeddings,
+    load_embeddings_into_model
+)
+
+# Export complete model with weight transfer
+export_complete_transformer(
+    checkpoint_path="path/to/vampnet.pth",
+    output_path="coarse_transformer.onnx",
+    model_type="coarse",
+    codec_path="path/to/codec.pth"
+)
+
+# Export all components at once
+export_all_components(
+    output_dir="onnx_models",
+    checkpoint_path="path/to/vampnet.pth",
+    codec_path="path/to/codec.pth",
+    export_weighted_models=True
+)
+```
+
+See `examples/complete_export_example.py` for comprehensive usage examples.
+
+## Legacy Script Usage
+
+The original scripts are still available for reference:
 
 - `scripts/transfer_weights_complete_v3.py` - Complete weight transfer implementation
 - `scripts/export_complete_model_to_onnx.py` - Current working ONNX export
 - `scripts/export_working_encoder.py` - Pre-padded encoder export (97.9% accuracy)
 - `scripts/extract_codec_embeddings.py` - Codec embedding extraction
-- `scripts/export_vampnet_transformer_v2.py` - Exports transformer with ONNX-friendly custom ops
-- `scripts/export_c2f_transformer_v2.py` - Exports C2F (Coarse-to-Fine) transformer
-
-Note: Many scripts in `scripts/` are superseded versions. Look for "v2", "v3", "fixed", or "proper" suffixes for current versions.
-
-## Model Recreation Commands
-
-```bash
-# Recreate complete working models
-python scripts/transfer_weights_complete_v3.py
-python scripts/export_complete_model_to_onnx.py
-python scripts/export_working_encoder.py
-
-# Test the complete pipeline
-python generate_audio_simple.py
-```
 
 ## Current Limitations
 
@@ -76,8 +109,26 @@ python generate_audio_simple.py
 4. **Audio Padding**: Must be padded to multiples of 768 samples
 5. **Output Classes**: VampNet uses 4096 classes vs ONNX's 1025
 
-## Testing Models
+## Testing
 
+### Unit Tests
+```bash
+# Run all tests
+pytest tests/
+
+# Run specific test modules
+pytest tests/test_audio_processor.py -v
+pytest tests/test_encoder.py -v
+pytest tests/test_transformer.py -v
+pytest tests/test_decoder.py -v
+pytest tests/test_weight_transfer.py -v
+pytest tests/test_embeddings.py -v
+
+# Run with coverage
+pytest tests/ --cov=vampnet_onnx --cov-report=html
+```
+
+### Integration Testing
 ```python
 # Test exported models
 python scripts/test_complete_model.py

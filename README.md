@@ -76,6 +76,36 @@ Download the pretrained models from [this link](https://zenodo.org/record/813662
 
 ### 3. Export VampNet Models
 
+#### Option A: Export from VampNet checkpoint (Recommended)
+```python
+from vampnet_onnx import export_complete_transformer
+
+# Export transformer with pretrained weights
+result = export_complete_transformer(
+    checkpoint_path="path/to/vampnet/checkpoint.pth",
+    output_path="models/coarse_transformer.onnx",
+    model_type="coarse",  # or "c2f" for fine transformer
+    verify_export=True
+)
+```
+
+#### Option B: Manual weight transfer
+```python
+from vampnet_onnx import CoarseTransformer, complete_weight_transfer
+
+# Create model and transfer weights
+model = CoarseTransformer()
+results = complete_weight_transfer(
+    checkpoint_path="path/to/vampnet/checkpoint.pth",
+    coarse_model=model,
+    return_embeddings=True
+)
+
+# Export to ONNX
+torch.onnx.export(model, dummy_input, "models/coarse.onnx")
+```
+
+#### Option C: Export simplified models (no pretrained weights)
 ```python
 from vampnet_onnx.exporters import export_all_components
 
