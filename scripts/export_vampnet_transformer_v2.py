@@ -71,7 +71,7 @@ class VampNetTransformerV2(nn.Module):
         
         # Embedding
         self.embedding = VerySimpleCodebookEmbedding(
-            n_codebooks=n_codebooks + n_conditioning_codebooks,
+            n_codebooks=n_codebooks,  # n_codebooks already includes conditioning
             vocab_size=vocab_size,
             d_model=d_model
         )
@@ -105,10 +105,11 @@ class VampNetTransformerV2(nn.Module):
         # Final norm
         self.final_norm = SimpleRMSNorm(d_model)
         
-        # Output projections
+        # Output projections - only for non-conditioning codebooks
+        n_output_codebooks = n_codebooks - n_conditioning_codebooks
         self.output_projs = nn.ModuleList([
             nn.Linear(d_model, vocab_size + 1)  # +1 for mask token
-            for _ in range(n_codebooks)
+            for _ in range(n_output_codebooks)
         ])
     
     def forward(self, codes, mask=None, temperature=1.0):
@@ -128,22 +129,28 @@ class VampNetTransformerV2(nn.Module):
         # Handle conditioning codes if any
         if self.n_conditioning_codebooks > 0:
             cond_codes = codes[:, :self.n_conditioning_codebooks]
-            codes = codes[:, self.n_conditioning_codebooks:]
+            gen_codes = codes[:, self.n_conditioning_codebooks:]
         else:
             cond_codes = None
+            gen_codes = codes
         
         # Apply mask token where needed
         if mask is not None:
             # Only apply to non-conditioning codes
             mask_to_apply = mask[:, self.n_conditioning_codebooks:] if self.n_conditioning_codebooks > 0 else mask
-            masked_codes = codes.clone()
-            masked_codes[mask_to_apply] = self.mask_token
+            masked_gen_codes = gen_codes.clone()
+            masked_gen_codes[mask_to_apply] = self.mask_token
             
             # Recombine with conditioning
             if cond_codes is not None:
-                masked_codes = torch.cat([cond_codes, masked_codes], dim=1)
+                masked_codes = torch.cat([cond_codes, masked_gen_codes], dim=1)
+            else:
+                masked_codes = masked_gen_codes
         else:
-            masked_codes = codes
+            if cond_codes is not None:
+                masked_codes = codes
+            else:
+                masked_codes = gen_codes
         
         # Embed
         x = self.embedding(masked_codes)  # [batch, seq_len, d_model]
@@ -167,33 +174,48 @@ class VampNetTransformerV2(nn.Module):
         # Final norm
         x = self.final_norm(x)
         
-        # Generate logits for each codebook
+        # Generate logits for each non-conditioning codebook
         all_logits = []
-        for i in range(self.n_codebooks):
+        n_output_codebooks = self.n_codebooks - self.n_conditioning_codebooks
+        for i in range(n_output_codebooks):
             cb_logits = self.output_projs[i](x)  # [batch, seq_len, vocab_size+1]
             all_logits.append(cb_logits)
         
         # Stack logits
-        logits = torch.stack(all_logits, dim=1)  # [batch, n_codebooks, seq_len, vocab_size+1]
+        logits = torch.stack(all_logits, dim=1)  # [batch, n_output_codebooks, seq_len, vocab_size+1]
         
         # Apply temperature
         if temperature != 1.0:
             logits = logits / temperature
         
         # Generate tokens
-        predictions = torch.argmax(logits, dim=-1)  # [batch, n_codebooks, seq_len]
+        predictions = torch.argmax(logits, dim=-1)  # [batch, n_output_codebooks, seq_len]
+        
+        # Debug shapes
+        # print(f"Debug: n_output_codebooks={n_output_codebooks}, predictions.shape={predictions.shape}")
         
         # Apply mask - only replace masked positions
         if mask is not None:
-            mask_to_apply = mask[:, self.n_conditioning_codebooks:] if self.n_conditioning_codebooks > 0 else mask
-            output = codes.clone()
-            output[mask_to_apply] = predictions[mask_to_apply]
+            if self.n_conditioning_codebooks > 0:
+                # For C2F, we need to handle conditioning properly
+                output = codes.clone()
+                # predictions has shape [batch, n_output_codebooks, seq_len]
+                # We need to put these predictions into the non-conditioning slots of output
+                # Extract the mask for generation codebooks only
+                generation_mask = mask[:, self.n_conditioning_codebooks:]
+                # Replace masked positions in the generation codebooks
+                output[:, self.n_conditioning_codebooks:][generation_mask] = predictions[generation_mask]
+            else:
+                # For coarse model
+                output = codes.clone()
+                output[mask] = predictions[mask]
         else:
-            output = predictions
-        
-        # Add conditioning codes back
-        if self.n_conditioning_codebooks > 0 and cond_codes is not None:
-            output = torch.cat([cond_codes, output], dim=1)
+            # No mask provided, just return predictions for non-conditioning
+            if self.n_conditioning_codebooks > 0:
+                output = codes.clone()
+                output[:, self.n_conditioning_codebooks:] = predictions
+            else:
+                output = predictions
         
         return output
 

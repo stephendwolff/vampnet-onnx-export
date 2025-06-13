@@ -1,0 +1,1624 @@
+=== Loading VampNet Models ===
+
+
+============================================================
+ANALYZING COARSE MODEL
+============================================================
+
+Model type: <class 'vampnet.modules.transformer.VampNet'>
+Model class: VampNet
+Total parameters: 368
+Total parameter count: 335,893,664
+
+=== ALL STATE DICT KEYS (COARSE) ===
+  0. embedding.special.MASK                                       torch.Size([4, 8])   torch.float32
+  1. embedding.out_proj.weight                                    torch.Size([1280, 32, 1]) torch.float32
+  2. embedding.out_proj.bias                                      torch.Size([1280])   torch.float32
+  3. transformer.layers.0.norm_1.weight                           torch.Size([1280])   torch.float32
+  4. transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+  5. transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+  6. transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+  7. transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+  8. transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+  9. transformer.layers.0.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 10. transformer.layers.0.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 11. transformer.layers.0.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 12. transformer.layers.0.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 13. transformer.layers.0.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 14. transformer.layers.0.self_attn.relative_attention_bias.weight torch.Size([32, 20]) torch.float32
+ 15. transformer.layers.0.norm_3.weight                           torch.Size([1280])   torch.float32
+ 16. transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 17. transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 18. transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 19. transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 20. transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 21. transformer.layers.0.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 22. transformer.layers.1.norm_1.weight                           torch.Size([1280])   torch.float32
+ 23. transformer.layers.1.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 24. transformer.layers.1.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 25. transformer.layers.1.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 26. transformer.layers.1.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 27. transformer.layers.1.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 28. transformer.layers.1.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 29. transformer.layers.1.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 30. transformer.layers.1.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 31. transformer.layers.1.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 32. transformer.layers.1.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 33. transformer.layers.1.norm_3.weight                           torch.Size([1280])   torch.float32
+ 34. transformer.layers.1.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 35. transformer.layers.1.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 36. transformer.layers.1.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 37. transformer.layers.1.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 38. transformer.layers.1.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 39. transformer.layers.1.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 40. transformer.layers.2.norm_1.weight                           torch.Size([1280])   torch.float32
+ 41. transformer.layers.2.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 42. transformer.layers.2.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 43. transformer.layers.2.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 44. transformer.layers.2.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 45. transformer.layers.2.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 46. transformer.layers.2.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 47. transformer.layers.2.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 48. transformer.layers.2.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 49. transformer.layers.2.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 50. transformer.layers.2.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 51. transformer.layers.2.norm_3.weight                           torch.Size([1280])   torch.float32
+ 52. transformer.layers.2.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 53. transformer.layers.2.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 54. transformer.layers.2.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 55. transformer.layers.2.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 56. transformer.layers.2.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 57. transformer.layers.2.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 58. transformer.layers.3.norm_1.weight                           torch.Size([1280])   torch.float32
+ 59. transformer.layers.3.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 60. transformer.layers.3.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 61. transformer.layers.3.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 62. transformer.layers.3.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 63. transformer.layers.3.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 64. transformer.layers.3.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 65. transformer.layers.3.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 66. transformer.layers.3.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 67. transformer.layers.3.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 68. transformer.layers.3.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 69. transformer.layers.3.norm_3.weight                           torch.Size([1280])   torch.float32
+ 70. transformer.layers.3.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 71. transformer.layers.3.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 72. transformer.layers.3.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 73. transformer.layers.3.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 74. transformer.layers.3.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 75. transformer.layers.3.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 76. transformer.layers.4.norm_1.weight                           torch.Size([1280])   torch.float32
+ 77. transformer.layers.4.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 78. transformer.layers.4.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 79. transformer.layers.4.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 80. transformer.layers.4.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 81. transformer.layers.4.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 82. transformer.layers.4.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 83. transformer.layers.4.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 84. transformer.layers.4.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 85. transformer.layers.4.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 86. transformer.layers.4.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 87. transformer.layers.4.norm_3.weight                           torch.Size([1280])   torch.float32
+ 88. transformer.layers.4.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 89. transformer.layers.4.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 90. transformer.layers.4.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 91. transformer.layers.4.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 92. transformer.layers.4.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 93. transformer.layers.4.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 94. transformer.layers.5.norm_1.weight                           torch.Size([1280])   torch.float32
+ 95. transformer.layers.5.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 96. transformer.layers.5.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 97. transformer.layers.5.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 98. transformer.layers.5.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 99. transformer.layers.5.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+100. transformer.layers.5.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+101. transformer.layers.5.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+102. transformer.layers.5.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+103. transformer.layers.5.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+104. transformer.layers.5.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+105. transformer.layers.5.norm_3.weight                           torch.Size([1280])   torch.float32
+106. transformer.layers.5.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+107. transformer.layers.5.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+108. transformer.layers.5.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+109. transformer.layers.5.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+110. transformer.layers.5.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+111. transformer.layers.5.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+112. transformer.layers.6.norm_1.weight                           torch.Size([1280])   torch.float32
+113. transformer.layers.6.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+114. transformer.layers.6.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+115. transformer.layers.6.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+116. transformer.layers.6.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+117. transformer.layers.6.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+118. transformer.layers.6.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+119. transformer.layers.6.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+120. transformer.layers.6.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+121. transformer.layers.6.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+122. transformer.layers.6.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+123. transformer.layers.6.norm_3.weight                           torch.Size([1280])   torch.float32
+124. transformer.layers.6.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+125. transformer.layers.6.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+126. transformer.layers.6.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+127. transformer.layers.6.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+128. transformer.layers.6.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+129. transformer.layers.6.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+130. transformer.layers.7.norm_1.weight                           torch.Size([1280])   torch.float32
+131. transformer.layers.7.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+132. transformer.layers.7.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+133. transformer.layers.7.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+134. transformer.layers.7.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+135. transformer.layers.7.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+136. transformer.layers.7.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+137. transformer.layers.7.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+138. transformer.layers.7.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+139. transformer.layers.7.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+140. transformer.layers.7.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+141. transformer.layers.7.norm_3.weight                           torch.Size([1280])   torch.float32
+142. transformer.layers.7.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+143. transformer.layers.7.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+144. transformer.layers.7.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+145. transformer.layers.7.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+146. transformer.layers.7.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+147. transformer.layers.7.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+148. transformer.layers.8.norm_1.weight                           torch.Size([1280])   torch.float32
+149. transformer.layers.8.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+150. transformer.layers.8.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+151. transformer.layers.8.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+152. transformer.layers.8.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+153. transformer.layers.8.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+154. transformer.layers.8.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+155. transformer.layers.8.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+156. transformer.layers.8.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+157. transformer.layers.8.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+158. transformer.layers.8.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+159. transformer.layers.8.norm_3.weight                           torch.Size([1280])   torch.float32
+160. transformer.layers.8.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+161. transformer.layers.8.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+162. transformer.layers.8.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+163. transformer.layers.8.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+164. transformer.layers.8.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+165. transformer.layers.8.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+166. transformer.layers.9.norm_1.weight                           torch.Size([1280])   torch.float32
+167. transformer.layers.9.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+168. transformer.layers.9.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+169. transformer.layers.9.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+170. transformer.layers.9.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+171. transformer.layers.9.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+172. transformer.layers.9.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+173. transformer.layers.9.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+174. transformer.layers.9.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+175. transformer.layers.9.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+176. transformer.layers.9.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+177. transformer.layers.9.norm_3.weight                           torch.Size([1280])   torch.float32
+178. transformer.layers.9.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+179. transformer.layers.9.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+180. transformer.layers.9.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+181. transformer.layers.9.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+182. transformer.layers.9.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+183. transformer.layers.9.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+184. transformer.layers.10.norm_1.weight                          torch.Size([1280])   torch.float32
+185. transformer.layers.10.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+186. transformer.layers.10.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+187. transformer.layers.10.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+188. transformer.layers.10.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+189. transformer.layers.10.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+190. transformer.layers.10.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+191. transformer.layers.10.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+192. transformer.layers.10.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+193. transformer.layers.10.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+194. transformer.layers.10.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+195. transformer.layers.10.norm_3.weight                          torch.Size([1280])   torch.float32
+196. transformer.layers.10.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+197. transformer.layers.10.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+198. transformer.layers.10.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+199. transformer.layers.10.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+200. transformer.layers.10.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+201. transformer.layers.10.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+202. transformer.layers.11.norm_1.weight                          torch.Size([1280])   torch.float32
+203. transformer.layers.11.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+204. transformer.layers.11.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+205. transformer.layers.11.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+206. transformer.layers.11.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+207. transformer.layers.11.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+208. transformer.layers.11.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+209. transformer.layers.11.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+210. transformer.layers.11.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+211. transformer.layers.11.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+212. transformer.layers.11.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+213. transformer.layers.11.norm_3.weight                          torch.Size([1280])   torch.float32
+214. transformer.layers.11.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+215. transformer.layers.11.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+216. transformer.layers.11.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+217. transformer.layers.11.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+218. transformer.layers.11.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+219. transformer.layers.11.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+220. transformer.layers.12.norm_1.weight                          torch.Size([1280])   torch.float32
+221. transformer.layers.12.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+222. transformer.layers.12.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+223. transformer.layers.12.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+224. transformer.layers.12.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+225. transformer.layers.12.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+226. transformer.layers.12.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+227. transformer.layers.12.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+228. transformer.layers.12.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+229. transformer.layers.12.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+230. transformer.layers.12.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+231. transformer.layers.12.norm_3.weight                          torch.Size([1280])   torch.float32
+232. transformer.layers.12.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+233. transformer.layers.12.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+234. transformer.layers.12.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+235. transformer.layers.12.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+236. transformer.layers.12.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+237. transformer.layers.12.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+238. transformer.layers.13.norm_1.weight                          torch.Size([1280])   torch.float32
+239. transformer.layers.13.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+240. transformer.layers.13.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+241. transformer.layers.13.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+242. transformer.layers.13.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+243. transformer.layers.13.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+244. transformer.layers.13.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+245. transformer.layers.13.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+246. transformer.layers.13.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+247. transformer.layers.13.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+248. transformer.layers.13.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+249. transformer.layers.13.norm_3.weight                          torch.Size([1280])   torch.float32
+250. transformer.layers.13.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+251. transformer.layers.13.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+252. transformer.layers.13.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+253. transformer.layers.13.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+254. transformer.layers.13.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+255. transformer.layers.13.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+256. transformer.layers.14.norm_1.weight                          torch.Size([1280])   torch.float32
+257. transformer.layers.14.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+258. transformer.layers.14.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+259. transformer.layers.14.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+260. transformer.layers.14.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+261. transformer.layers.14.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+262. transformer.layers.14.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+263. transformer.layers.14.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+264. transformer.layers.14.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+265. transformer.layers.14.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+266. transformer.layers.14.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+267. transformer.layers.14.norm_3.weight                          torch.Size([1280])   torch.float32
+268. transformer.layers.14.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+269. transformer.layers.14.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+270. transformer.layers.14.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+271. transformer.layers.14.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+272. transformer.layers.14.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+273. transformer.layers.14.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+274. transformer.layers.15.norm_1.weight                          torch.Size([1280])   torch.float32
+275. transformer.layers.15.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+276. transformer.layers.15.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+277. transformer.layers.15.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+278. transformer.layers.15.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+279. transformer.layers.15.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+280. transformer.layers.15.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+281. transformer.layers.15.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+282. transformer.layers.15.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+283. transformer.layers.15.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+284. transformer.layers.15.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+285. transformer.layers.15.norm_3.weight                          torch.Size([1280])   torch.float32
+286. transformer.layers.15.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+287. transformer.layers.15.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+288. transformer.layers.15.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+289. transformer.layers.15.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+290. transformer.layers.15.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+291. transformer.layers.15.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+292. transformer.layers.16.norm_1.weight                          torch.Size([1280])   torch.float32
+293. transformer.layers.16.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+294. transformer.layers.16.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+295. transformer.layers.16.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+296. transformer.layers.16.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+297. transformer.layers.16.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+298. transformer.layers.16.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+299. transformer.layers.16.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+300. transformer.layers.16.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+301. transformer.layers.16.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+302. transformer.layers.16.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+303. transformer.layers.16.norm_3.weight                          torch.Size([1280])   torch.float32
+304. transformer.layers.16.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+305. transformer.layers.16.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+306. transformer.layers.16.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+307. transformer.layers.16.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+308. transformer.layers.16.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+309. transformer.layers.16.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+310. transformer.layers.17.norm_1.weight                          torch.Size([1280])   torch.float32
+311. transformer.layers.17.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+312. transformer.layers.17.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+313. transformer.layers.17.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+314. transformer.layers.17.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+315. transformer.layers.17.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+316. transformer.layers.17.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+317. transformer.layers.17.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+318. transformer.layers.17.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+319. transformer.layers.17.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+320. transformer.layers.17.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+321. transformer.layers.17.norm_3.weight                          torch.Size([1280])   torch.float32
+322. transformer.layers.17.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+323. transformer.layers.17.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+324. transformer.layers.17.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+325. transformer.layers.17.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+326. transformer.layers.17.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+327. transformer.layers.17.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+328. transformer.layers.18.norm_1.weight                          torch.Size([1280])   torch.float32
+329. transformer.layers.18.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+330. transformer.layers.18.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+331. transformer.layers.18.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+332. transformer.layers.18.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+333. transformer.layers.18.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+334. transformer.layers.18.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+335. transformer.layers.18.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+336. transformer.layers.18.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+337. transformer.layers.18.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+338. transformer.layers.18.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+339. transformer.layers.18.norm_3.weight                          torch.Size([1280])   torch.float32
+340. transformer.layers.18.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+341. transformer.layers.18.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+342. transformer.layers.18.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+343. transformer.layers.18.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+344. transformer.layers.18.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+345. transformer.layers.18.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+346. transformer.layers.19.norm_1.weight                          torch.Size([1280])   torch.float32
+347. transformer.layers.19.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+348. transformer.layers.19.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+349. transformer.layers.19.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+350. transformer.layers.19.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+351. transformer.layers.19.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+352. transformer.layers.19.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+353. transformer.layers.19.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+354. transformer.layers.19.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+355. transformer.layers.19.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+356. transformer.layers.19.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+357. transformer.layers.19.norm_3.weight                          torch.Size([1280])   torch.float32
+358. transformer.layers.19.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+359. transformer.layers.19.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+360. transformer.layers.19.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+361. transformer.layers.19.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+362. transformer.layers.19.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+363. transformer.layers.19.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+364. transformer.norm.weight                                      torch.Size([1280])   torch.float32
+365. classifier.layers.0.bias                                     torch.Size([4096])   torch.float32
+366. classifier.layers.0.weight_g                                 torch.Size([4096, 1, 1]) torch.float32
+367. classifier.layers.0.weight_v                                 torch.Size([4096, 1280, 1]) torch.float32
+
+=== PARAMETER CATEGORIES (COARSE) ===
+
+EMBEDDINGS (3 parameters):
+  embedding.special.MASK                                       torch.Size([4, 8])  
+  embedding.out_proj.weight                                    torch.Size([1280, 32, 1])
+  embedding.out_proj.bias                                      torch.Size([1280])  
+
+NORMALIZATION (41 parameters):
+  transformer.layers.0.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.0.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.1.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.1.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.2.norm_1.weight                           torch.Size([1280])  
+  ... and 36 more
+
+ATTENTION (201 parameters):
+  transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280])
+  ... and 196 more
+
+OTHER (120 parameters):
+  transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8])
+  transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560])
+  transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560])
+  ... and 115 more
+
+OUTPUT (3 parameters):
+  classifier.layers.0.bias                                     torch.Size([4096])  
+  classifier.layers.0.weight_g                                 torch.Size([4096, 1, 1])
+  classifier.layers.0.weight_v                                 torch.Size([4096, 1280, 1])
+
+=== LAYER STRUCTURE (COARSE) ===
+Number of transformer layers: 20
+
+Layer 0 parameters (22 total):
+  classifier.layers.0.bias                                     torch.Size([4096])  
+  classifier.layers.0.weight_g                                 torch.Size([4096, 1, 1])
+  classifier.layers.0.weight_v                                 torch.Size([4096, 1280, 1])
+  transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8])
+  transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280])
+  transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560])
+  transformer.layers.0.feed_forward.w_2.lora_B                 torch.Size([1280, 8])
+  transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560])
+  transformer.layers.0.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.0.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.0.self_attn.fc.lora_A                     torch.Size([8, 1280])
+  transformer.layers.0.self_attn.fc.lora_B                     torch.Size([1280, 8])
+  transformer.layers.0.self_attn.fc.weight                     torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.relative_attention_bias.weight torch.Size([32, 20])
+  transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_vs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_vs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280])
+
+=== NAMING PATTERNS ===
+
+normalization:
+  transformer.norm_1.weight
+  transformer.norm_3.weight
+
+attention:
+  transformer.self_attn.fc.lora_A
+  transformer.self_attn.fc.lora_B
+  transformer.self_attn.fc.weight
+  transformer.self_attn.relative_attention_bias.weight
+  transformer.self_attn.w_ks.weight
+  transformer.self_attn.w_qs.lora_A
+  transformer.self_attn.w_qs.lora_B
+  transformer.self_attn.w_qs.weight
+  transformer.self_attn.w_vs.lora_A
+  transformer.self_attn.w_vs.lora_B
+  transformer.self_attn.w_vs.weight
+
+other:
+  classifier.bias
+  classifier.weight_g
+  classifier.weight_v
+  transformer.feed_forward.w_1.lora_A
+  transformer.feed_forward.w_1.lora_B
+  transformer.feed_forward.w_1.weight
+  transformer.feed_forward.w_2.lora_A
+  transformer.feed_forward.w_2.lora_B
+  transformer.feed_forward.w_2.weight
+
+============================================================
+ANALYZING C2F MODEL
+============================================================
+
+Model type: <class 'vampnet.modules.transformer.VampNet'>
+Model class: VampNet
+Total parameters: 296
+Total parameter count: 277,753,072
+
+=== ALL STATE DICT KEYS (C2F) ===
+  0. embedding.special.MASK                                       torch.Size([14, 8])  torch.float32
+  1. embedding.out_proj.weight                                    torch.Size([1280, 112, 1]) torch.float32
+  2. embedding.out_proj.bias                                      torch.Size([1280])   torch.float32
+  3. transformer.layers.0.norm_1.weight                           torch.Size([1280])   torch.float32
+  4. transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+  5. transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+  6. transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+  7. transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+  8. transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+  9. transformer.layers.0.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 10. transformer.layers.0.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 11. transformer.layers.0.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 12. transformer.layers.0.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 13. transformer.layers.0.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 14. transformer.layers.0.self_attn.relative_attention_bias.weight torch.Size([32, 20]) torch.float32
+ 15. transformer.layers.0.norm_3.weight                           torch.Size([1280])   torch.float32
+ 16. transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 17. transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 18. transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 19. transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 20. transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 21. transformer.layers.0.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 22. transformer.layers.1.norm_1.weight                           torch.Size([1280])   torch.float32
+ 23. transformer.layers.1.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 24. transformer.layers.1.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 25. transformer.layers.1.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 26. transformer.layers.1.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 27. transformer.layers.1.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 28. transformer.layers.1.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 29. transformer.layers.1.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 30. transformer.layers.1.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 31. transformer.layers.1.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 32. transformer.layers.1.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 33. transformer.layers.1.norm_3.weight                           torch.Size([1280])   torch.float32
+ 34. transformer.layers.1.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 35. transformer.layers.1.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 36. transformer.layers.1.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 37. transformer.layers.1.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 38. transformer.layers.1.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 39. transformer.layers.1.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 40. transformer.layers.2.norm_1.weight                           torch.Size([1280])   torch.float32
+ 41. transformer.layers.2.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 42. transformer.layers.2.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 43. transformer.layers.2.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 44. transformer.layers.2.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 45. transformer.layers.2.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 46. transformer.layers.2.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 47. transformer.layers.2.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 48. transformer.layers.2.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 49. transformer.layers.2.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 50. transformer.layers.2.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 51. transformer.layers.2.norm_3.weight                           torch.Size([1280])   torch.float32
+ 52. transformer.layers.2.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 53. transformer.layers.2.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 54. transformer.layers.2.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 55. transformer.layers.2.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 56. transformer.layers.2.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 57. transformer.layers.2.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 58. transformer.layers.3.norm_1.weight                           torch.Size([1280])   torch.float32
+ 59. transformer.layers.3.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 60. transformer.layers.3.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 61. transformer.layers.3.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 62. transformer.layers.3.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 63. transformer.layers.3.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 64. transformer.layers.3.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 65. transformer.layers.3.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 66. transformer.layers.3.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 67. transformer.layers.3.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 68. transformer.layers.3.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 69. transformer.layers.3.norm_3.weight                           torch.Size([1280])   torch.float32
+ 70. transformer.layers.3.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 71. transformer.layers.3.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 72. transformer.layers.3.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 73. transformer.layers.3.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 74. transformer.layers.3.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 75. transformer.layers.3.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 76. transformer.layers.4.norm_1.weight                           torch.Size([1280])   torch.float32
+ 77. transformer.layers.4.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 78. transformer.layers.4.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 79. transformer.layers.4.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 80. transformer.layers.4.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 81. transformer.layers.4.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+ 82. transformer.layers.4.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 83. transformer.layers.4.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 84. transformer.layers.4.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+ 85. transformer.layers.4.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+ 86. transformer.layers.4.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+ 87. transformer.layers.4.norm_3.weight                           torch.Size([1280])   torch.float32
+ 88. transformer.layers.4.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+ 89. transformer.layers.4.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+ 90. transformer.layers.4.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+ 91. transformer.layers.4.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+ 92. transformer.layers.4.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+ 93. transformer.layers.4.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+ 94. transformer.layers.5.norm_1.weight                           torch.Size([1280])   torch.float32
+ 95. transformer.layers.5.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+ 96. transformer.layers.5.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+ 97. transformer.layers.5.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+ 98. transformer.layers.5.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+ 99. transformer.layers.5.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+100. transformer.layers.5.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+101. transformer.layers.5.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+102. transformer.layers.5.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+103. transformer.layers.5.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+104. transformer.layers.5.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+105. transformer.layers.5.norm_3.weight                           torch.Size([1280])   torch.float32
+106. transformer.layers.5.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+107. transformer.layers.5.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+108. transformer.layers.5.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+109. transformer.layers.5.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+110. transformer.layers.5.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+111. transformer.layers.5.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+112. transformer.layers.6.norm_1.weight                           torch.Size([1280])   torch.float32
+113. transformer.layers.6.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+114. transformer.layers.6.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+115. transformer.layers.6.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+116. transformer.layers.6.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+117. transformer.layers.6.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+118. transformer.layers.6.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+119. transformer.layers.6.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+120. transformer.layers.6.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+121. transformer.layers.6.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+122. transformer.layers.6.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+123. transformer.layers.6.norm_3.weight                           torch.Size([1280])   torch.float32
+124. transformer.layers.6.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+125. transformer.layers.6.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+126. transformer.layers.6.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+127. transformer.layers.6.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+128. transformer.layers.6.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+129. transformer.layers.6.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+130. transformer.layers.7.norm_1.weight                           torch.Size([1280])   torch.float32
+131. transformer.layers.7.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+132. transformer.layers.7.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+133. transformer.layers.7.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+134. transformer.layers.7.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+135. transformer.layers.7.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+136. transformer.layers.7.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+137. transformer.layers.7.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+138. transformer.layers.7.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+139. transformer.layers.7.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+140. transformer.layers.7.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+141. transformer.layers.7.norm_3.weight                           torch.Size([1280])   torch.float32
+142. transformer.layers.7.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+143. transformer.layers.7.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+144. transformer.layers.7.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+145. transformer.layers.7.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+146. transformer.layers.7.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+147. transformer.layers.7.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+148. transformer.layers.8.norm_1.weight                           torch.Size([1280])   torch.float32
+149. transformer.layers.8.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+150. transformer.layers.8.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+151. transformer.layers.8.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+152. transformer.layers.8.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+153. transformer.layers.8.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+154. transformer.layers.8.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+155. transformer.layers.8.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+156. transformer.layers.8.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+157. transformer.layers.8.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+158. transformer.layers.8.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+159. transformer.layers.8.norm_3.weight                           torch.Size([1280])   torch.float32
+160. transformer.layers.8.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+161. transformer.layers.8.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+162. transformer.layers.8.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+163. transformer.layers.8.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+164. transformer.layers.8.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+165. transformer.layers.8.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+166. transformer.layers.9.norm_1.weight                           torch.Size([1280])   torch.float32
+167. transformer.layers.9.self_attn.w_qs.weight                   torch.Size([1280, 1280]) torch.float32
+168. transformer.layers.9.self_attn.w_qs.lora_A                   torch.Size([8, 1280]) torch.float32
+169. transformer.layers.9.self_attn.w_qs.lora_B                   torch.Size([1280, 8]) torch.float32
+170. transformer.layers.9.self_attn.w_ks.weight                   torch.Size([1280, 1280]) torch.float32
+171. transformer.layers.9.self_attn.w_vs.weight                   torch.Size([1280, 1280]) torch.float32
+172. transformer.layers.9.self_attn.w_vs.lora_A                   torch.Size([8, 1280]) torch.float32
+173. transformer.layers.9.self_attn.w_vs.lora_B                   torch.Size([1280, 8]) torch.float32
+174. transformer.layers.9.self_attn.fc.weight                     torch.Size([1280, 1280]) torch.float32
+175. transformer.layers.9.self_attn.fc.lora_A                     torch.Size([8, 1280]) torch.float32
+176. transformer.layers.9.self_attn.fc.lora_B                     torch.Size([1280, 8]) torch.float32
+177. transformer.layers.9.norm_3.weight                           torch.Size([1280])   torch.float32
+178. transformer.layers.9.feed_forward.w_1.weight                 torch.Size([5120, 1280]) torch.float32
+179. transformer.layers.9.feed_forward.w_1.lora_A                 torch.Size([8, 1280]) torch.float32
+180. transformer.layers.9.feed_forward.w_1.lora_B                 torch.Size([5120, 8]) torch.float32
+181. transformer.layers.9.feed_forward.w_2.weight                 torch.Size([1280, 2560]) torch.float32
+182. transformer.layers.9.feed_forward.w_2.lora_A                 torch.Size([8, 2560]) torch.float32
+183. transformer.layers.9.feed_forward.w_2.lora_B                 torch.Size([1280, 8]) torch.float32
+184. transformer.layers.10.norm_1.weight                          torch.Size([1280])   torch.float32
+185. transformer.layers.10.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+186. transformer.layers.10.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+187. transformer.layers.10.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+188. transformer.layers.10.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+189. transformer.layers.10.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+190. transformer.layers.10.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+191. transformer.layers.10.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+192. transformer.layers.10.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+193. transformer.layers.10.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+194. transformer.layers.10.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+195. transformer.layers.10.norm_3.weight                          torch.Size([1280])   torch.float32
+196. transformer.layers.10.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+197. transformer.layers.10.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+198. transformer.layers.10.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+199. transformer.layers.10.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+200. transformer.layers.10.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+201. transformer.layers.10.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+202. transformer.layers.11.norm_1.weight                          torch.Size([1280])   torch.float32
+203. transformer.layers.11.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+204. transformer.layers.11.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+205. transformer.layers.11.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+206. transformer.layers.11.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+207. transformer.layers.11.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+208. transformer.layers.11.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+209. transformer.layers.11.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+210. transformer.layers.11.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+211. transformer.layers.11.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+212. transformer.layers.11.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+213. transformer.layers.11.norm_3.weight                          torch.Size([1280])   torch.float32
+214. transformer.layers.11.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+215. transformer.layers.11.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+216. transformer.layers.11.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+217. transformer.layers.11.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+218. transformer.layers.11.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+219. transformer.layers.11.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+220. transformer.layers.12.norm_1.weight                          torch.Size([1280])   torch.float32
+221. transformer.layers.12.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+222. transformer.layers.12.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+223. transformer.layers.12.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+224. transformer.layers.12.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+225. transformer.layers.12.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+226. transformer.layers.12.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+227. transformer.layers.12.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+228. transformer.layers.12.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+229. transformer.layers.12.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+230. transformer.layers.12.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+231. transformer.layers.12.norm_3.weight                          torch.Size([1280])   torch.float32
+232. transformer.layers.12.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+233. transformer.layers.12.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+234. transformer.layers.12.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+235. transformer.layers.12.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+236. transformer.layers.12.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+237. transformer.layers.12.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+238. transformer.layers.13.norm_1.weight                          torch.Size([1280])   torch.float32
+239. transformer.layers.13.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+240. transformer.layers.13.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+241. transformer.layers.13.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+242. transformer.layers.13.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+243. transformer.layers.13.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+244. transformer.layers.13.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+245. transformer.layers.13.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+246. transformer.layers.13.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+247. transformer.layers.13.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+248. transformer.layers.13.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+249. transformer.layers.13.norm_3.weight                          torch.Size([1280])   torch.float32
+250. transformer.layers.13.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+251. transformer.layers.13.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+252. transformer.layers.13.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+253. transformer.layers.13.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+254. transformer.layers.13.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+255. transformer.layers.13.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+256. transformer.layers.14.norm_1.weight                          torch.Size([1280])   torch.float32
+257. transformer.layers.14.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+258. transformer.layers.14.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+259. transformer.layers.14.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+260. transformer.layers.14.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+261. transformer.layers.14.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+262. transformer.layers.14.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+263. transformer.layers.14.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+264. transformer.layers.14.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+265. transformer.layers.14.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+266. transformer.layers.14.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+267. transformer.layers.14.norm_3.weight                          torch.Size([1280])   torch.float32
+268. transformer.layers.14.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+269. transformer.layers.14.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+270. transformer.layers.14.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+271. transformer.layers.14.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+272. transformer.layers.14.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+273. transformer.layers.14.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+274. transformer.layers.15.norm_1.weight                          torch.Size([1280])   torch.float32
+275. transformer.layers.15.self_attn.w_qs.weight                  torch.Size([1280, 1280]) torch.float32
+276. transformer.layers.15.self_attn.w_qs.lora_A                  torch.Size([8, 1280]) torch.float32
+277. transformer.layers.15.self_attn.w_qs.lora_B                  torch.Size([1280, 8]) torch.float32
+278. transformer.layers.15.self_attn.w_ks.weight                  torch.Size([1280, 1280]) torch.float32
+279. transformer.layers.15.self_attn.w_vs.weight                  torch.Size([1280, 1280]) torch.float32
+280. transformer.layers.15.self_attn.w_vs.lora_A                  torch.Size([8, 1280]) torch.float32
+281. transformer.layers.15.self_attn.w_vs.lora_B                  torch.Size([1280, 8]) torch.float32
+282. transformer.layers.15.self_attn.fc.weight                    torch.Size([1280, 1280]) torch.float32
+283. transformer.layers.15.self_attn.fc.lora_A                    torch.Size([8, 1280]) torch.float32
+284. transformer.layers.15.self_attn.fc.lora_B                    torch.Size([1280, 8]) torch.float32
+285. transformer.layers.15.norm_3.weight                          torch.Size([1280])   torch.float32
+286. transformer.layers.15.feed_forward.w_1.weight                torch.Size([5120, 1280]) torch.float32
+287. transformer.layers.15.feed_forward.w_1.lora_A                torch.Size([8, 1280]) torch.float32
+288. transformer.layers.15.feed_forward.w_1.lora_B                torch.Size([5120, 8]) torch.float32
+289. transformer.layers.15.feed_forward.w_2.weight                torch.Size([1280, 2560]) torch.float32
+290. transformer.layers.15.feed_forward.w_2.lora_A                torch.Size([8, 2560]) torch.float32
+291. transformer.layers.15.feed_forward.w_2.lora_B                torch.Size([1280, 8]) torch.float32
+292. transformer.norm.weight                                      torch.Size([1280])   torch.float32
+293. classifier.layers.0.bias                                     torch.Size([10240])  torch.float32
+294. classifier.layers.0.weight_g                                 torch.Size([10240, 1, 1]) torch.float32
+295. classifier.layers.0.weight_v                                 torch.Size([10240, 1280, 1]) torch.float32
+
+=== PARAMETER CATEGORIES (C2F) ===
+
+EMBEDDINGS (3 parameters):
+  embedding.special.MASK                                       torch.Size([14, 8]) 
+  embedding.out_proj.weight                                    torch.Size([1280, 112, 1])
+  embedding.out_proj.bias                                      torch.Size([1280])  
+
+NORMALIZATION (33 parameters):
+  transformer.layers.0.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.0.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.1.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.1.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.2.norm_1.weight                           torch.Size([1280])  
+  ... and 28 more
+
+ATTENTION (161 parameters):
+  transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280])
+  ... and 156 more
+
+OTHER (96 parameters):
+  transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8])
+  transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560])
+  transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560])
+  ... and 91 more
+
+OUTPUT (3 parameters):
+  classifier.layers.0.bias                                     torch.Size([10240]) 
+  classifier.layers.0.weight_g                                 torch.Size([10240, 1, 1])
+  classifier.layers.0.weight_v                                 torch.Size([10240, 1280, 1])
+
+=== LAYER STRUCTURE (C2F) ===
+Number of transformer layers: 16
+
+Layer 0 parameters (22 total):
+  classifier.layers.0.bias                                     torch.Size([10240]) 
+  classifier.layers.0.weight_g                                 torch.Size([10240, 1, 1])
+  classifier.layers.0.weight_v                                 torch.Size([10240, 1280, 1])
+  transformer.layers.0.feed_forward.w_1.lora_A                 torch.Size([8, 1280])
+  transformer.layers.0.feed_forward.w_1.lora_B                 torch.Size([5120, 8])
+  transformer.layers.0.feed_forward.w_1.weight                 torch.Size([5120, 1280])
+  transformer.layers.0.feed_forward.w_2.lora_A                 torch.Size([8, 2560])
+  transformer.layers.0.feed_forward.w_2.lora_B                 torch.Size([1280, 8])
+  transformer.layers.0.feed_forward.w_2.weight                 torch.Size([1280, 2560])
+  transformer.layers.0.norm_1.weight                           torch.Size([1280])  
+  transformer.layers.0.norm_3.weight                           torch.Size([1280])  
+  transformer.layers.0.self_attn.fc.lora_A                     torch.Size([8, 1280])
+  transformer.layers.0.self_attn.fc.lora_B                     torch.Size([1280, 8])
+  transformer.layers.0.self_attn.fc.weight                     torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.relative_attention_bias.weight torch.Size([32, 20])
+  transformer.layers.0.self_attn.w_ks.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_qs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_qs.weight                   torch.Size([1280, 1280])
+  transformer.layers.0.self_attn.w_vs.lora_A                   torch.Size([8, 1280])
+  transformer.layers.0.self_attn.w_vs.lora_B                   torch.Size([1280, 8])
+  transformer.layers.0.self_attn.w_vs.weight                   torch.Size([1280, 1280])
+
+=== NAMING PATTERNS ===
+
+normalization:
+  transformer.norm_1.weight
+  transformer.norm_3.weight
+
+attention:
+  transformer.self_attn.fc.lora_A
+  transformer.self_attn.fc.lora_B
+  transformer.self_attn.fc.weight
+  transformer.self_attn.relative_attention_bias.weight
+  transformer.self_attn.w_ks.weight
+  transformer.self_attn.w_qs.lora_A
+  transformer.self_attn.w_qs.lora_B
+  transformer.self_attn.w_qs.weight
+  transformer.self_attn.w_vs.lora_A
+  transformer.self_attn.w_vs.lora_B
+  transformer.self_attn.w_vs.weight
+
+other:
+  classifier.bias
+  classifier.weight_g
+  classifier.weight_v
+  transformer.feed_forward.w_1.lora_A
+  transformer.feed_forward.w_1.lora_B
+  transformer.feed_forward.w_1.weight
+  transformer.feed_forward.w_2.lora_A
+  transformer.feed_forward.w_2.lora_B
+  transformer.feed_forward.w_2.weight
+
+============================================================
+COMPARING COARSE AND C2F MODELS
+============================================================
+
+Total keys - Coarse: 368, C2F: 296
+Common keys: 296
+Only in coarse: 72
+Only in c2f: 0
+
+=== Parameters only in COARSE model ===
+  transformer.layers.16.feed_forward.w_1.lora_A
+  transformer.layers.16.feed_forward.w_1.lora_B
+  transformer.layers.16.feed_forward.w_1.weight
+  transformer.layers.16.feed_forward.w_2.lora_A
+  transformer.layers.16.feed_forward.w_2.lora_B
+  transformer.layers.16.feed_forward.w_2.weight
+  transformer.layers.16.norm_1.weight
+  transformer.layers.16.norm_3.weight
+  transformer.layers.16.self_attn.fc.lora_A
+  transformer.layers.16.self_attn.fc.lora_B
+  ... and 62 more
+
+=== Shape differences for common parameters (5) ===
+  classifier.layers.0.weight_v                       Coarse: torch.Size([4096, 1280, 1]) C2F: torch.Size([10240, 1280, 1])
+  embedding.out_proj.weight                          Coarse: torch.Size([1280, 32, 1]) C2F: torch.Size([1280, 112, 1])
+  classifier.layers.0.weight_g                       Coarse: torch.Size([4096, 1, 1]) C2F: torch.Size([10240, 1, 1])
+  embedding.special.MASK                             Coarse: torch.Size([4, 8]) C2F: torch.Size([14, 8])
+  classifier.layers.0.bias                           Coarse: torch.Size([4096]) C2F: torch.Size([10240])
+
+============================================================
+ARCHITECTURE ANALYSIS - C2F
+============================================================
+
+=== MODULE HIERARCHY ===
+embedding: CodebookEmbedding
+  embedding.special: ParameterDict
+  embedding.out_proj: Conv1d
+transformer: TransformerStack
+  transformer.layers: ModuleList
+    transformer.layers.0: TransformerLayer
+      transformer.layers.0.norm_1: RMSNorm
+      transformer.layers.0.film_1: FiLM
+      transformer.layers.0.self_attn: MultiHeadRelativeAttention
+        transformer.layers.0.self_attn.w_qs: Linear
+        transformer.layers.0.self_attn.w_ks: Linear
+        transformer.layers.0.self_attn.w_vs: Linear
+        transformer.layers.0.self_attn.fc: Linear
+        transformer.layers.0.self_attn.dropout: Dropout
+        transformer.layers.0.self_attn.relative_attention_bias: Embedding
+      transformer.layers.0.norm_3: RMSNorm
+      transformer.layers.0.film_3: FiLM
+      transformer.layers.0.feed_forward: FeedForward
+        transformer.layers.0.feed_forward.w_1: Linear
+        transformer.layers.0.feed_forward.w_2: Linear
+        transformer.layers.0.feed_forward.drop: Dropout
+        transformer.layers.0.feed_forward.act: GatedGELU
+          transformer.layers.0.feed_forward.act.gelu: NewGELU
+      transformer.layers.0.dropout: Dropout
+    transformer.layers.1: TransformerLayer
+      transformer.layers.1.norm_1: RMSNorm
+      transformer.layers.1.film_1: FiLM
+      transformer.layers.1.self_attn: MultiHeadRelativeAttention
+        transformer.layers.1.self_attn.w_qs: Linear
+        transformer.layers.1.self_attn.w_ks: Linear
+        transformer.layers.1.self_attn.w_vs: Linear
+        transformer.layers.1.self_attn.fc: Linear
+        transformer.layers.1.self_attn.dropout: Dropout
+      transformer.layers.1.norm_3: RMSNorm
+      transformer.layers.1.film_3: FiLM
+      transformer.layers.1.feed_forward: FeedForward
+        transformer.layers.1.feed_forward.w_1: Linear
+        transformer.layers.1.feed_forward.w_2: Linear
+        transformer.layers.1.feed_forward.drop: Dropout
+        transformer.layers.1.feed_forward.act: GatedGELU
+          transformer.layers.1.feed_forward.act.gelu: NewGELU
+      transformer.layers.1.dropout: Dropout
+    transformer.layers.2: TransformerLayer
+      transformer.layers.2.norm_1: RMSNorm
+      transformer.layers.2.film_1: FiLM
+      transformer.layers.2.self_attn: MultiHeadRelativeAttention
+        transformer.layers.2.self_attn.w_qs: Linear
+        transformer.layers.2.self_attn.w_ks: Linear
+        transformer.layers.2.self_attn.w_vs: Linear
+        transformer.layers.2.self_attn.fc: Linear
+        transformer.layers.2.self_attn.dropout: Dropout
+      transformer.layers.2.norm_3: RMSNorm
+      transformer.layers.2.film_3: FiLM
+      transformer.layers.2.feed_forward: FeedForward
+        transformer.layers.2.feed_forward.w_1: Linear
+        transformer.layers.2.feed_forward.w_2: Linear
+        transformer.layers.2.feed_forward.drop: Dropout
+        transformer.layers.2.feed_forward.act: GatedGELU
+          transformer.layers.2.feed_forward.act.gelu: NewGELU
+      transformer.layers.2.dropout: Dropout
+    transformer.layers.3: TransformerLayer
+      transformer.layers.3.norm_1: RMSNorm
+      transformer.layers.3.film_1: FiLM
+      transformer.layers.3.self_attn: MultiHeadRelativeAttention
+        transformer.layers.3.self_attn.w_qs: Linear
+        transformer.layers.3.self_attn.w_ks: Linear
+        transformer.layers.3.self_attn.w_vs: Linear
+        transformer.layers.3.self_attn.fc: Linear
+        transformer.layers.3.self_attn.dropout: Dropout
+      transformer.layers.3.norm_3: RMSNorm
+      transformer.layers.3.film_3: FiLM
+      transformer.layers.3.feed_forward: FeedForward
+        transformer.layers.3.feed_forward.w_1: Linear
+        transformer.layers.3.feed_forward.w_2: Linear
+        transformer.layers.3.feed_forward.drop: Dropout
+        transformer.layers.3.feed_forward.act: GatedGELU
+          transformer.layers.3.feed_forward.act.gelu: NewGELU
+      transformer.layers.3.dropout: Dropout
+    transformer.layers.4: TransformerLayer
+      transformer.layers.4.norm_1: RMSNorm
+      transformer.layers.4.film_1: FiLM
+      transformer.layers.4.self_attn: MultiHeadRelativeAttention
+        transformer.layers.4.self_attn.w_qs: Linear
+        transformer.layers.4.self_attn.w_ks: Linear
+        transformer.layers.4.self_attn.w_vs: Linear
+        transformer.layers.4.self_attn.fc: Linear
+        transformer.layers.4.self_attn.dropout: Dropout
+      transformer.layers.4.norm_3: RMSNorm
+      transformer.layers.4.film_3: FiLM
+      transformer.layers.4.feed_forward: FeedForward
+        transformer.layers.4.feed_forward.w_1: Linear
+        transformer.layers.4.feed_forward.w_2: Linear
+        transformer.layers.4.feed_forward.drop: Dropout
+        transformer.layers.4.feed_forward.act: GatedGELU
+          transformer.layers.4.feed_forward.act.gelu: NewGELU
+      transformer.layers.4.dropout: Dropout
+    transformer.layers.5: TransformerLayer
+      transformer.layers.5.norm_1: RMSNorm
+      transformer.layers.5.film_1: FiLM
+      transformer.layers.5.self_attn: MultiHeadRelativeAttention
+        transformer.layers.5.self_attn.w_qs: Linear
+        transformer.layers.5.self_attn.w_ks: Linear
+        transformer.layers.5.self_attn.w_vs: Linear
+        transformer.layers.5.self_attn.fc: Linear
+        transformer.layers.5.self_attn.dropout: Dropout
+      transformer.layers.5.norm_3: RMSNorm
+      transformer.layers.5.film_3: FiLM
+      transformer.layers.5.feed_forward: FeedForward
+        transformer.layers.5.feed_forward.w_1: Linear
+        transformer.layers.5.feed_forward.w_2: Linear
+        transformer.layers.5.feed_forward.drop: Dropout
+        transformer.layers.5.feed_forward.act: GatedGELU
+          transformer.layers.5.feed_forward.act.gelu: NewGELU
+      transformer.layers.5.dropout: Dropout
+    transformer.layers.6: TransformerLayer
+      transformer.layers.6.norm_1: RMSNorm
+      transformer.layers.6.film_1: FiLM
+      transformer.layers.6.self_attn: MultiHeadRelativeAttention
+        transformer.layers.6.self_attn.w_qs: Linear
+        transformer.layers.6.self_attn.w_ks: Linear
+        transformer.layers.6.self_attn.w_vs: Linear
+        transformer.layers.6.self_attn.fc: Linear
+        transformer.layers.6.self_attn.dropout: Dropout
+      transformer.layers.6.norm_3: RMSNorm
+      transformer.layers.6.film_3: FiLM
+      transformer.layers.6.feed_forward: FeedForward
+        transformer.layers.6.feed_forward.w_1: Linear
+        transformer.layers.6.feed_forward.w_2: Linear
+        transformer.layers.6.feed_forward.drop: Dropout
+        transformer.layers.6.feed_forward.act: GatedGELU
+          transformer.layers.6.feed_forward.act.gelu: NewGELU
+      transformer.layers.6.dropout: Dropout
+    transformer.layers.7: TransformerLayer
+      transformer.layers.7.norm_1: RMSNorm
+      transformer.layers.7.film_1: FiLM
+      transformer.layers.7.self_attn: MultiHeadRelativeAttention
+        transformer.layers.7.self_attn.w_qs: Linear
+        transformer.layers.7.self_attn.w_ks: Linear
+        transformer.layers.7.self_attn.w_vs: Linear
+        transformer.layers.7.self_attn.fc: Linear
+        transformer.layers.7.self_attn.dropout: Dropout
+      transformer.layers.7.norm_3: RMSNorm
+      transformer.layers.7.film_3: FiLM
+      transformer.layers.7.feed_forward: FeedForward
+        transformer.layers.7.feed_forward.w_1: Linear
+        transformer.layers.7.feed_forward.w_2: Linear
+        transformer.layers.7.feed_forward.drop: Dropout
+        transformer.layers.7.feed_forward.act: GatedGELU
+          transformer.layers.7.feed_forward.act.gelu: NewGELU
+      transformer.layers.7.dropout: Dropout
+    transformer.layers.8: TransformerLayer
+      transformer.layers.8.norm_1: RMSNorm
+      transformer.layers.8.film_1: FiLM
+      transformer.layers.8.self_attn: MultiHeadRelativeAttention
+        transformer.layers.8.self_attn.w_qs: Linear
+        transformer.layers.8.self_attn.w_ks: Linear
+        transformer.layers.8.self_attn.w_vs: Linear
+        transformer.layers.8.self_attn.fc: Linear
+        transformer.layers.8.self_attn.dropout: Dropout
+      transformer.layers.8.norm_3: RMSNorm
+      transformer.layers.8.film_3: FiLM
+      transformer.layers.8.feed_forward: FeedForward
+        transformer.layers.8.feed_forward.w_1: Linear
+        transformer.layers.8.feed_forward.w_2: Linear
+        transformer.layers.8.feed_forward.drop: Dropout
+        transformer.layers.8.feed_forward.act: GatedGELU
+          transformer.layers.8.feed_forward.act.gelu: NewGELU
+      transformer.layers.8.dropout: Dropout
+    transformer.layers.9: TransformerLayer
+      transformer.layers.9.norm_1: RMSNorm
+      transformer.layers.9.film_1: FiLM
+      transformer.layers.9.self_attn: MultiHeadRelativeAttention
+        transformer.layers.9.self_attn.w_qs: Linear
+        transformer.layers.9.self_attn.w_ks: Linear
+        transformer.layers.9.self_attn.w_vs: Linear
+        transformer.layers.9.self_attn.fc: Linear
+        transformer.layers.9.self_attn.dropout: Dropout
+      transformer.layers.9.norm_3: RMSNorm
+      transformer.layers.9.film_3: FiLM
+      transformer.layers.9.feed_forward: FeedForward
+        transformer.layers.9.feed_forward.w_1: Linear
+        transformer.layers.9.feed_forward.w_2: Linear
+        transformer.layers.9.feed_forward.drop: Dropout
+        transformer.layers.9.feed_forward.act: GatedGELU
+          transformer.layers.9.feed_forward.act.gelu: NewGELU
+      transformer.layers.9.dropout: Dropout
+    transformer.layers.10: TransformerLayer
+      transformer.layers.10.norm_1: RMSNorm
+      transformer.layers.10.film_1: FiLM
+      transformer.layers.10.self_attn: MultiHeadRelativeAttention
+        transformer.layers.10.self_attn.w_qs: Linear
+        transformer.layers.10.self_attn.w_ks: Linear
+        transformer.layers.10.self_attn.w_vs: Linear
+        transformer.layers.10.self_attn.fc: Linear
+        transformer.layers.10.self_attn.dropout: Dropout
+      transformer.layers.10.norm_3: RMSNorm
+      transformer.layers.10.film_3: FiLM
+      transformer.layers.10.feed_forward: FeedForward
+        transformer.layers.10.feed_forward.w_1: Linear
+        transformer.layers.10.feed_forward.w_2: Linear
+        transformer.layers.10.feed_forward.drop: Dropout
+        transformer.layers.10.feed_forward.act: GatedGELU
+          transformer.layers.10.feed_forward.act.gelu: NewGELU
+      transformer.layers.10.dropout: Dropout
+    transformer.layers.11: TransformerLayer
+      transformer.layers.11.norm_1: RMSNorm
+      transformer.layers.11.film_1: FiLM
+      transformer.layers.11.self_attn: MultiHeadRelativeAttention
+        transformer.layers.11.self_attn.w_qs: Linear
+        transformer.layers.11.self_attn.w_ks: Linear
+        transformer.layers.11.self_attn.w_vs: Linear
+        transformer.layers.11.self_attn.fc: Linear
+        transformer.layers.11.self_attn.dropout: Dropout
+      transformer.layers.11.norm_3: RMSNorm
+      transformer.layers.11.film_3: FiLM
+      transformer.layers.11.feed_forward: FeedForward
+        transformer.layers.11.feed_forward.w_1: Linear
+        transformer.layers.11.feed_forward.w_2: Linear
+        transformer.layers.11.feed_forward.drop: Dropout
+        transformer.layers.11.feed_forward.act: GatedGELU
+          transformer.layers.11.feed_forward.act.gelu: NewGELU
+      transformer.layers.11.dropout: Dropout
+    transformer.layers.12: TransformerLayer
+      transformer.layers.12.norm_1: RMSNorm
+      transformer.layers.12.film_1: FiLM
+      transformer.layers.12.self_attn: MultiHeadRelativeAttention
+        transformer.layers.12.self_attn.w_qs: Linear
+        transformer.layers.12.self_attn.w_ks: Linear
+        transformer.layers.12.self_attn.w_vs: Linear
+        transformer.layers.12.self_attn.fc: Linear
+        transformer.layers.12.self_attn.dropout: Dropout
+      transformer.layers.12.norm_3: RMSNorm
+      transformer.layers.12.film_3: FiLM
+      transformer.layers.12.feed_forward: FeedForward
+        transformer.layers.12.feed_forward.w_1: Linear
+        transformer.layers.12.feed_forward.w_2: Linear
+        transformer.layers.12.feed_forward.drop: Dropout
+        transformer.layers.12.feed_forward.act: GatedGELU
+          transformer.layers.12.feed_forward.act.gelu: NewGELU
+      transformer.layers.12.dropout: Dropout
+    transformer.layers.13: TransformerLayer
+      transformer.layers.13.norm_1: RMSNorm
+      transformer.layers.13.film_1: FiLM
+      transformer.layers.13.self_attn: MultiHeadRelativeAttention
+        transformer.layers.13.self_attn.w_qs: Linear
+        transformer.layers.13.self_attn.w_ks: Linear
+        transformer.layers.13.self_attn.w_vs: Linear
+        transformer.layers.13.self_attn.fc: Linear
+        transformer.layers.13.self_attn.dropout: Dropout
+      transformer.layers.13.norm_3: RMSNorm
+      transformer.layers.13.film_3: FiLM
+      transformer.layers.13.feed_forward: FeedForward
+        transformer.layers.13.feed_forward.w_1: Linear
+        transformer.layers.13.feed_forward.w_2: Linear
+        transformer.layers.13.feed_forward.drop: Dropout
+        transformer.layers.13.feed_forward.act: GatedGELU
+          transformer.layers.13.feed_forward.act.gelu: NewGELU
+      transformer.layers.13.dropout: Dropout
+    transformer.layers.14: TransformerLayer
+      transformer.layers.14.norm_1: RMSNorm
+      transformer.layers.14.film_1: FiLM
+      transformer.layers.14.self_attn: MultiHeadRelativeAttention
+        transformer.layers.14.self_attn.w_qs: Linear
+        transformer.layers.14.self_attn.w_ks: Linear
+        transformer.layers.14.self_attn.w_vs: Linear
+        transformer.layers.14.self_attn.fc: Linear
+        transformer.layers.14.self_attn.dropout: Dropout
+      transformer.layers.14.norm_3: RMSNorm
+      transformer.layers.14.film_3: FiLM
+      transformer.layers.14.feed_forward: FeedForward
+        transformer.layers.14.feed_forward.w_1: Linear
+        transformer.layers.14.feed_forward.w_2: Linear
+        transformer.layers.14.feed_forward.drop: Dropout
+        transformer.layers.14.feed_forward.act: GatedGELU
+          transformer.layers.14.feed_forward.act.gelu: NewGELU
+      transformer.layers.14.dropout: Dropout
+    transformer.layers.15: TransformerLayer
+      transformer.layers.15.norm_1: RMSNorm
+      transformer.layers.15.film_1: FiLM
+      transformer.layers.15.self_attn: MultiHeadRelativeAttention
+        transformer.layers.15.self_attn.w_qs: Linear
+        transformer.layers.15.self_attn.w_ks: Linear
+        transformer.layers.15.self_attn.w_vs: Linear
+        transformer.layers.15.self_attn.fc: Linear
+        transformer.layers.15.self_attn.dropout: Dropout
+      transformer.layers.15.norm_3: RMSNorm
+      transformer.layers.15.film_3: FiLM
+      transformer.layers.15.feed_forward: FeedForward
+        transformer.layers.15.feed_forward.w_1: Linear
+        transformer.layers.15.feed_forward.w_2: Linear
+        transformer.layers.15.feed_forward.drop: Dropout
+        transformer.layers.15.feed_forward.act: GatedGELU
+          transformer.layers.15.feed_forward.act.gelu: NewGELU
+      transformer.layers.15.dropout: Dropout
+  transformer.norm: RMSNorm
+classifier: SequentialWithFiLM
+  classifier.layers: ModuleList
+    classifier.layers.0: Conv1d
+
+=== KEY COMPONENTS ===
+
+Embeddings:
+  embedding: CodebookEmbedding(
+  (special): ParameterDict(  (MASK): Parameter containing: [torch.FloatTensor of size 14x8])
+  (out_proj): Conv1d(112, 1280, kernel_size=(1,), stride=(1,))
+)
+  embedding.special: ParameterDict(  (MASK): Parameter containing: [torch.FloatTensor of size 14x8])
+  embedding.out_proj: Conv1d(112, 1280, kernel_size=(1,), stride=(1,))
+
+============================================================
+ARCHITECTURE ANALYSIS - COARSE
+============================================================
+
+=== MODULE HIERARCHY ===
+embedding: CodebookEmbedding
+  embedding.special: ParameterDict
+  embedding.out_proj: Conv1d
+transformer: TransformerStack
+  transformer.layers: ModuleList
+    transformer.layers.0: TransformerLayer
+      transformer.layers.0.norm_1: RMSNorm
+      transformer.layers.0.film_1: FiLM
+      transformer.layers.0.self_attn: MultiHeadRelativeAttention
+        transformer.layers.0.self_attn.w_qs: Linear
+        transformer.layers.0.self_attn.w_ks: Linear
+        transformer.layers.0.self_attn.w_vs: Linear
+        transformer.layers.0.self_attn.fc: Linear
+        transformer.layers.0.self_attn.dropout: Dropout
+        transformer.layers.0.self_attn.relative_attention_bias: Embedding
+      transformer.layers.0.norm_3: RMSNorm
+      transformer.layers.0.film_3: FiLM
+      transformer.layers.0.feed_forward: FeedForward
+        transformer.layers.0.feed_forward.w_1: Linear
+        transformer.layers.0.feed_forward.w_2: Linear
+        transformer.layers.0.feed_forward.drop: Dropout
+        transformer.layers.0.feed_forward.act: GatedGELU
+          transformer.layers.0.feed_forward.act.gelu: NewGELU
+      transformer.layers.0.dropout: Dropout
+    transformer.layers.1: TransformerLayer
+      transformer.layers.1.norm_1: RMSNorm
+      transformer.layers.1.film_1: FiLM
+      transformer.layers.1.self_attn: MultiHeadRelativeAttention
+        transformer.layers.1.self_attn.w_qs: Linear
+        transformer.layers.1.self_attn.w_ks: Linear
+        transformer.layers.1.self_attn.w_vs: Linear
+        transformer.layers.1.self_attn.fc: Linear
+        transformer.layers.1.self_attn.dropout: Dropout
+      transformer.layers.1.norm_3: RMSNorm
+      transformer.layers.1.film_3: FiLM
+      transformer.layers.1.feed_forward: FeedForward
+        transformer.layers.1.feed_forward.w_1: Linear
+        transformer.layers.1.feed_forward.w_2: Linear
+        transformer.layers.1.feed_forward.drop: Dropout
+        transformer.layers.1.feed_forward.act: GatedGELU
+          transformer.layers.1.feed_forward.act.gelu: NewGELU
+      transformer.layers.1.dropout: Dropout
+    transformer.layers.2: TransformerLayer
+      transformer.layers.2.norm_1: RMSNorm
+      transformer.layers.2.film_1: FiLM
+      transformer.layers.2.self_attn: MultiHeadRelativeAttention
+        transformer.layers.2.self_attn.w_qs: Linear
+        transformer.layers.2.self_attn.w_ks: Linear
+        transformer.layers.2.self_attn.w_vs: Linear
+        transformer.layers.2.self_attn.fc: Linear
+        transformer.layers.2.self_attn.dropout: Dropout
+      transformer.layers.2.norm_3: RMSNorm
+      transformer.layers.2.film_3: FiLM
+      transformer.layers.2.feed_forward: FeedForward
+        transformer.layers.2.feed_forward.w_1: Linear
+        transformer.layers.2.feed_forward.w_2: Linear
+        transformer.layers.2.feed_forward.drop: Dropout
+        transformer.layers.2.feed_forward.act: GatedGELU
+          transformer.layers.2.feed_forward.act.gelu: NewGELU
+      transformer.layers.2.dropout: Dropout
+    transformer.layers.3: TransformerLayer
+      transformer.layers.3.norm_1: RMSNorm
+      transformer.layers.3.film_1: FiLM
+      transformer.layers.3.self_attn: MultiHeadRelativeAttention
+        transformer.layers.3.self_attn.w_qs: Linear
+        transformer.layers.3.self_attn.w_ks: Linear
+        transformer.layers.3.self_attn.w_vs: Linear
+        transformer.layers.3.self_attn.fc: Linear
+        transformer.layers.3.self_attn.dropout: Dropout
+      transformer.layers.3.norm_3: RMSNorm
+      transformer.layers.3.film_3: FiLM
+      transformer.layers.3.feed_forward: FeedForward
+        transformer.layers.3.feed_forward.w_1: Linear
+        transformer.layers.3.feed_forward.w_2: Linear
+        transformer.layers.3.feed_forward.drop: Dropout
+        transformer.layers.3.feed_forward.act: GatedGELU
+          transformer.layers.3.feed_forward.act.gelu: NewGELU
+      transformer.layers.3.dropout: Dropout
+    transformer.layers.4: TransformerLayer
+      transformer.layers.4.norm_1: RMSNorm
+      transformer.layers.4.film_1: FiLM
+      transformer.layers.4.self_attn: MultiHeadRelativeAttention
+        transformer.layers.4.self_attn.w_qs: Linear
+        transformer.layers.4.self_attn.w_ks: Linear
+        transformer.layers.4.self_attn.w_vs: Linear
+        transformer.layers.4.self_attn.fc: Linear
+        transformer.layers.4.self_attn.dropout: Dropout
+      transformer.layers.4.norm_3: RMSNorm
+      transformer.layers.4.film_3: FiLM
+      transformer.layers.4.feed_forward: FeedForward
+        transformer.layers.4.feed_forward.w_1: Linear
+        transformer.layers.4.feed_forward.w_2: Linear
+        transformer.layers.4.feed_forward.drop: Dropout
+        transformer.layers.4.feed_forward.act: GatedGELU
+          transformer.layers.4.feed_forward.act.gelu: NewGELU
+      transformer.layers.4.dropout: Dropout
+    transformer.layers.5: TransformerLayer
+      transformer.layers.5.norm_1: RMSNorm
+      transformer.layers.5.film_1: FiLM
+      transformer.layers.5.self_attn: MultiHeadRelativeAttention
+        transformer.layers.5.self_attn.w_qs: Linear
+        transformer.layers.5.self_attn.w_ks: Linear
+        transformer.layers.5.self_attn.w_vs: Linear
+        transformer.layers.5.self_attn.fc: Linear
+        transformer.layers.5.self_attn.dropout: Dropout
+      transformer.layers.5.norm_3: RMSNorm
+      transformer.layers.5.film_3: FiLM
+      transformer.layers.5.feed_forward: FeedForward
+        transformer.layers.5.feed_forward.w_1: Linear
+        transformer.layers.5.feed_forward.w_2: Linear
+        transformer.layers.5.feed_forward.drop: Dropout
+        transformer.layers.5.feed_forward.act: GatedGELU
+          transformer.layers.5.feed_forward.act.gelu: NewGELU
+      transformer.layers.5.dropout: Dropout
+    transformer.layers.6: TransformerLayer
+      transformer.layers.6.norm_1: RMSNorm
+      transformer.layers.6.film_1: FiLM
+      transformer.layers.6.self_attn: MultiHeadRelativeAttention
+        transformer.layers.6.self_attn.w_qs: Linear
+        transformer.layers.6.self_attn.w_ks: Linear
+        transformer.layers.6.self_attn.w_vs: Linear
+        transformer.layers.6.self_attn.fc: Linear
+        transformer.layers.6.self_attn.dropout: Dropout
+      transformer.layers.6.norm_3: RMSNorm
+      transformer.layers.6.film_3: FiLM
+      transformer.layers.6.feed_forward: FeedForward
+        transformer.layers.6.feed_forward.w_1: Linear
+        transformer.layers.6.feed_forward.w_2: Linear
+        transformer.layers.6.feed_forward.drop: Dropout
+        transformer.layers.6.feed_forward.act: GatedGELU
+          transformer.layers.6.feed_forward.act.gelu: NewGELU
+      transformer.layers.6.dropout: Dropout
+    transformer.layers.7: TransformerLayer
+      transformer.layers.7.norm_1: RMSNorm
+      transformer.layers.7.film_1: FiLM
+      transformer.layers.7.self_attn: MultiHeadRelativeAttention
+        transformer.layers.7.self_attn.w_qs: Linear
+        transformer.layers.7.self_attn.w_ks: Linear
+        transformer.layers.7.self_attn.w_vs: Linear
+        transformer.layers.7.self_attn.fc: Linear
+        transformer.layers.7.self_attn.dropout: Dropout
+      transformer.layers.7.norm_3: RMSNorm
+      transformer.layers.7.film_3: FiLM
+      transformer.layers.7.feed_forward: FeedForward
+        transformer.layers.7.feed_forward.w_1: Linear
+        transformer.layers.7.feed_forward.w_2: Linear
+        transformer.layers.7.feed_forward.drop: Dropout
+        transformer.layers.7.feed_forward.act: GatedGELU
+          transformer.layers.7.feed_forward.act.gelu: NewGELU
+      transformer.layers.7.dropout: Dropout
+    transformer.layers.8: TransformerLayer
+      transformer.layers.8.norm_1: RMSNorm
+      transformer.layers.8.film_1: FiLM
+      transformer.layers.8.self_attn: MultiHeadRelativeAttention
+        transformer.layers.8.self_attn.w_qs: Linear
+        transformer.layers.8.self_attn.w_ks: Linear
+        transformer.layers.8.self_attn.w_vs: Linear
+        transformer.layers.8.self_attn.fc: Linear
+        transformer.layers.8.self_attn.dropout: Dropout
+      transformer.layers.8.norm_3: RMSNorm
+      transformer.layers.8.film_3: FiLM
+      transformer.layers.8.feed_forward: FeedForward
+        transformer.layers.8.feed_forward.w_1: Linear
+        transformer.layers.8.feed_forward.w_2: Linear
+        transformer.layers.8.feed_forward.drop: Dropout
+        transformer.layers.8.feed_forward.act: GatedGELU
+          transformer.layers.8.feed_forward.act.gelu: NewGELU
+      transformer.layers.8.dropout: Dropout
+    transformer.layers.9: TransformerLayer
+      transformer.layers.9.norm_1: RMSNorm
+      transformer.layers.9.film_1: FiLM
+      transformer.layers.9.self_attn: MultiHeadRelativeAttention
+        transformer.layers.9.self_attn.w_qs: Linear
+        transformer.layers.9.self_attn.w_ks: Linear
+        transformer.layers.9.self_attn.w_vs: Linear
+        transformer.layers.9.self_attn.fc: Linear
+        transformer.layers.9.self_attn.dropout: Dropout
+      transformer.layers.9.norm_3: RMSNorm
+      transformer.layers.9.film_3: FiLM
+      transformer.layers.9.feed_forward: FeedForward
+        transformer.layers.9.feed_forward.w_1: Linear
+        transformer.layers.9.feed_forward.w_2: Linear
+        transformer.layers.9.feed_forward.drop: Dropout
+        transformer.layers.9.feed_forward.act: GatedGELU
+          transformer.layers.9.feed_forward.act.gelu: NewGELU
+      transformer.layers.9.dropout: Dropout
+    transformer.layers.10: TransformerLayer
+      transformer.layers.10.norm_1: RMSNorm
+      transformer.layers.10.film_1: FiLM
+      transformer.layers.10.self_attn: MultiHeadRelativeAttention
+        transformer.layers.10.self_attn.w_qs: Linear
+        transformer.layers.10.self_attn.w_ks: Linear
+        transformer.layers.10.self_attn.w_vs: Linear
+        transformer.layers.10.self_attn.fc: Linear
+        transformer.layers.10.self_attn.dropout: Dropout
+      transformer.layers.10.norm_3: RMSNorm
+      transformer.layers.10.film_3: FiLM
+      transformer.layers.10.feed_forward: FeedForward
+        transformer.layers.10.feed_forward.w_1: Linear
+        transformer.layers.10.feed_forward.w_2: Linear
+        transformer.layers.10.feed_forward.drop: Dropout
+        transformer.layers.10.feed_forward.act: GatedGELU
+          transformer.layers.10.feed_forward.act.gelu: NewGELU
+      transformer.layers.10.dropout: Dropout
+    transformer.layers.11: TransformerLayer
+      transformer.layers.11.norm_1: RMSNorm
+      transformer.layers.11.film_1: FiLM
+      transformer.layers.11.self_attn: MultiHeadRelativeAttention
+        transformer.layers.11.self_attn.w_qs: Linear
+        transformer.layers.11.self_attn.w_ks: Linear
+        transformer.layers.11.self_attn.w_vs: Linear
+        transformer.layers.11.self_attn.fc: Linear
+        transformer.layers.11.self_attn.dropout: Dropout
+      transformer.layers.11.norm_3: RMSNorm
+      transformer.layers.11.film_3: FiLM
+      transformer.layers.11.feed_forward: FeedForward
+        transformer.layers.11.feed_forward.w_1: Linear
+        transformer.layers.11.feed_forward.w_2: Linear
+        transformer.layers.11.feed_forward.drop: Dropout
+        transformer.layers.11.feed_forward.act: GatedGELU
+          transformer.layers.11.feed_forward.act.gelu: NewGELU
+      transformer.layers.11.dropout: Dropout
+    transformer.layers.12: TransformerLayer
+      transformer.layers.12.norm_1: RMSNorm
+      transformer.layers.12.film_1: FiLM
+      transformer.layers.12.self_attn: MultiHeadRelativeAttention
+        transformer.layers.12.self_attn.w_qs: Linear
+        transformer.layers.12.self_attn.w_ks: Linear
+        transformer.layers.12.self_attn.w_vs: Linear
+        transformer.layers.12.self_attn.fc: Linear
+        transformer.layers.12.self_attn.dropout: Dropout
+      transformer.layers.12.norm_3: RMSNorm
+      transformer.layers.12.film_3: FiLM
+      transformer.layers.12.feed_forward: FeedForward
+        transformer.layers.12.feed_forward.w_1: Linear
+        transformer.layers.12.feed_forward.w_2: Linear
+        transformer.layers.12.feed_forward.drop: Dropout
+        transformer.layers.12.feed_forward.act: GatedGELU
+          transformer.layers.12.feed_forward.act.gelu: NewGELU
+      transformer.layers.12.dropout: Dropout
+    transformer.layers.13: TransformerLayer
+      transformer.layers.13.norm_1: RMSNorm
+      transformer.layers.13.film_1: FiLM
+      transformer.layers.13.self_attn: MultiHeadRelativeAttention
+        transformer.layers.13.self_attn.w_qs: Linear
+        transformer.layers.13.self_attn.w_ks: Linear
+        transformer.layers.13.self_attn.w_vs: Linear
+        transformer.layers.13.self_attn.fc: Linear
+        transformer.layers.13.self_attn.dropout: Dropout
+      transformer.layers.13.norm_3: RMSNorm
+      transformer.layers.13.film_3: FiLM
+      transformer.layers.13.feed_forward: FeedForward
+        transformer.layers.13.feed_forward.w_1: Linear
+        transformer.layers.13.feed_forward.w_2: Linear
+        transformer.layers.13.feed_forward.drop: Dropout
+        transformer.layers.13.feed_forward.act: GatedGELU
+          transformer.layers.13.feed_forward.act.gelu: NewGELU
+      transformer.layers.13.dropout: Dropout
+    transformer.layers.14: TransformerLayer
+      transformer.layers.14.norm_1: RMSNorm
+      transformer.layers.14.film_1: FiLM
+      transformer.layers.14.self_attn: MultiHeadRelativeAttention
+        transformer.layers.14.self_attn.w_qs: Linear
+        transformer.layers.14.self_attn.w_ks: Linear
+        transformer.layers.14.self_attn.w_vs: Linear
+        transformer.layers.14.self_attn.fc: Linear
+        transformer.layers.14.self_attn.dropout: Dropout
+      transformer.layers.14.norm_3: RMSNorm
+      transformer.layers.14.film_3: FiLM
+      transformer.layers.14.feed_forward: FeedForward
+        transformer.layers.14.feed_forward.w_1: Linear
+        transformer.layers.14.feed_forward.w_2: Linear
+        transformer.layers.14.feed_forward.drop: Dropout
+        transformer.layers.14.feed_forward.act: GatedGELU
+          transformer.layers.14.feed_forward.act.gelu: NewGELU
+      transformer.layers.14.dropout: Dropout
+    transformer.layers.15: TransformerLayer
+      transformer.layers.15.norm_1: RMSNorm
+      transformer.layers.15.film_1: FiLM
+      transformer.layers.15.self_attn: MultiHeadRelativeAttention
+        transformer.layers.15.self_attn.w_qs: Linear
+        transformer.layers.15.self_attn.w_ks: Linear
+        transformer.layers.15.self_attn.w_vs: Linear
+        transformer.layers.15.self_attn.fc: Linear
+        transformer.layers.15.self_attn.dropout: Dropout
+      transformer.layers.15.norm_3: RMSNorm
+      transformer.layers.15.film_3: FiLM
+      transformer.layers.15.feed_forward: FeedForward
+        transformer.layers.15.feed_forward.w_1: Linear
+        transformer.layers.15.feed_forward.w_2: Linear
+        transformer.layers.15.feed_forward.drop: Dropout
+        transformer.layers.15.feed_forward.act: GatedGELU
+          transformer.layers.15.feed_forward.act.gelu: NewGELU
+      transformer.layers.15.dropout: Dropout
+    transformer.layers.16: TransformerLayer
+      transformer.layers.16.norm_1: RMSNorm
+      transformer.layers.16.film_1: FiLM
+      transformer.layers.16.self_attn: MultiHeadRelativeAttention
+        transformer.layers.16.self_attn.w_qs: Linear
+        transformer.layers.16.self_attn.w_ks: Linear
+        transformer.layers.16.self_attn.w_vs: Linear
+        transformer.layers.16.self_attn.fc: Linear
+        transformer.layers.16.self_attn.dropout: Dropout
+      transformer.layers.16.norm_3: RMSNorm
+      transformer.layers.16.film_3: FiLM
+      transformer.layers.16.feed_forward: FeedForward
+        transformer.layers.16.feed_forward.w_1: Linear
+        transformer.layers.16.feed_forward.w_2: Linear
+        transformer.layers.16.feed_forward.drop: Dropout
+        transformer.layers.16.feed_forward.act: GatedGELU
+          transformer.layers.16.feed_forward.act.gelu: NewGELU
+      transformer.layers.16.dropout: Dropout
+    transformer.layers.17: TransformerLayer
+      transformer.layers.17.norm_1: RMSNorm
+      transformer.layers.17.film_1: FiLM
+      transformer.layers.17.self_attn: MultiHeadRelativeAttention
+        transformer.layers.17.self_attn.w_qs: Linear
+        transformer.layers.17.self_attn.w_ks: Linear
+        transformer.layers.17.self_attn.w_vs: Linear
+        transformer.layers.17.self_attn.fc: Linear
+        transformer.layers.17.self_attn.dropout: Dropout
+      transformer.layers.17.norm_3: RMSNorm
+      transformer.layers.17.film_3: FiLM
+      transformer.layers.17.feed_forward: FeedForward
+        transformer.layers.17.feed_forward.w_1: Linear
+        transformer.layers.17.feed_forward.w_2: Linear
+        transformer.layers.17.feed_forward.drop: Dropout
+        transformer.layers.17.feed_forward.act: GatedGELU
+          transformer.layers.17.feed_forward.act.gelu: NewGELU
+      transformer.layers.17.dropout: Dropout
+    transformer.layers.18: TransformerLayer
+      transformer.layers.18.norm_1: RMSNorm
+      transformer.layers.18.film_1: FiLM
+      transformer.layers.18.self_attn: MultiHeadRelativeAttention
+        transformer.layers.18.self_attn.w_qs: Linear
+        transformer.layers.18.self_attn.w_ks: Linear
+        transformer.layers.18.self_attn.w_vs: Linear
+        transformer.layers.18.self_attn.fc: Linear
+        transformer.layers.18.self_attn.dropout: Dropout
+      transformer.layers.18.norm_3: RMSNorm
+      transformer.layers.18.film_3: FiLM
+      transformer.layers.18.feed_forward: FeedForward
+        transformer.layers.18.feed_forward.w_1: Linear
+        transformer.layers.18.feed_forward.w_2: Linear
+        transformer.layers.18.feed_forward.drop: Dropout
+        transformer.layers.18.feed_forward.act: GatedGELU
+          transformer.layers.18.feed_forward.act.gelu: NewGELU
+      transformer.layers.18.dropout: Dropout
+    transformer.layers.19: TransformerLayer
+      transformer.layers.19.norm_1: RMSNorm
+      transformer.layers.19.film_1: FiLM
+      transformer.layers.19.self_attn: MultiHeadRelativeAttention
+        transformer.layers.19.self_attn.w_qs: Linear
+        transformer.layers.19.self_attn.w_ks: Linear
+        transformer.layers.19.self_attn.w_vs: Linear
+        transformer.layers.19.self_attn.fc: Linear
+        transformer.layers.19.self_attn.dropout: Dropout
+      transformer.layers.19.norm_3: RMSNorm
+      transformer.layers.19.film_3: FiLM
+      transformer.layers.19.feed_forward: FeedForward
+        transformer.layers.19.feed_forward.w_1: Linear
+        transformer.layers.19.feed_forward.w_2: Linear
+        transformer.layers.19.feed_forward.drop: Dropout
+        transformer.layers.19.feed_forward.act: GatedGELU
+          transformer.layers.19.feed_forward.act.gelu: NewGELU
+      transformer.layers.19.dropout: Dropout
+  transformer.norm: RMSNorm
+classifier: SequentialWithFiLM
+  classifier.layers: ModuleList
+    classifier.layers.0: Conv1d
+
+=== KEY COMPONENTS ===
+
+Embeddings:
+  embedding: CodebookEmbedding(
+  (special): ParameterDict(  (MASK): Parameter containing: [torch.FloatTensor of size 4x8])
+  (out_proj): Conv1d(32, 1280, kernel_size=(1,), stride=(1,))
+)
+  embedding.special: ParameterDict(  (MASK): Parameter containing: [torch.FloatTensor of size 4x8])
+  embedding.out_proj: Conv1d(32, 1280, kernel_size=(1,), stride=(1,))
+
+============================================================
+SUMMARY OF KEY FINDINGS
+============================================================
+
+1. NAMING PATTERNS:
+   - Layers: 'layers.{layer_num}.{component}'
+   - Normalization: Uses 'norm1', 'norm2', 'norm'
+   - Attention: Uses 'attn' prefix
+   - FFN/MLP: Uses 'mlp' prefix
+   - Embeddings: Various embedding layers
+
+2. KEY DIFFERENCES FROM OUR ONNX MODEL:
+   - VampNet uses specific component names we need to map
+   - Different embedding structure
+   - May have additional components (FiLM, etc.)
+
+3. WEIGHT TRANSFER CONSIDERATIONS:
+   - Need to map VampNet naming to our structure
+   - Handle different embedding organizations
+   - Account for any architectural differences

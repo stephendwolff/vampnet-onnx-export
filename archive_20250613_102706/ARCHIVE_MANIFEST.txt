@@ -1,0 +1,21 @@
+Archive created on Fri Jun 13 10:27:19 BST 2025
+========================
+
+This archive contains experimental and test files from the VampNet ONNX export project.
+
+Contents:
+- Test scripts (test_*.py)
+- Analysis scripts (analyze_*.py, check_*.py, etc.)
+- Original scripts folder with all experimental versions
+- Build artifacts
+- Output files
+- Analysis documents
+
+The main repository has been cleaned to contain only:
+- vampnet_onnx/ - main package
+- models/ - pretrained models
+- onnx_models_fixed/ - ONNX exports
+- notebooks/vampnet_onnx_comparison_prepadded.ipynb - working notebook
+- assets/ - test audio
+- Core documentation (README.md, CLAUDE.md)
+- Package files (pyproject.toml, .gitignore, etc.)
