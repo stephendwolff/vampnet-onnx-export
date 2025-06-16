@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-06-15 16:38:53",
+  "models": {
+    "vampnet": "Original VampNet",
+    "v11_pytorch": "VampNet V11 PyTorch",
+    "v11_onnx": "VampNet V11 ONNX"
+  },
+  "test_results": [
+    {
+      "name": "Small (10 tokens)",
+      "shape": [
+        1,
+        4,
+        10
+      ],
+      "vampnet_time": 0.29299187660217285,
+      "v11_time": 0.09582877159118652,
+      "onnx_time": 0.06351900100708008,
+      "pytorch_match": true,
+      "pytorch_corr": 0.9999999999944187,
+      "pytorch_max_diff": 

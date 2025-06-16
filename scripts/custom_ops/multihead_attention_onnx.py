@@ -25,11 +25,11 @@ class OnnxMultiheadAttention(nn.Module):
         self.d_k = d_model // n_heads
         self.scale = 1.0 / math.sqrt(self.d_k)
         
-        # Linear projections
-        self.w_q = nn.Linear(d_model, d_model)
-        self.w_k = nn.Linear(d_model, d_model)
-        self.w_v = nn.Linear(d_model, d_model)
-        self.w_o = nn.Linear(d_model, d_model)
+        # Linear projections (VampNet uses bias=False)
+        self.w_q = nn.Linear(d_model, d_model, bias=False)
+        self.w_k = nn.Linear(d_model, d_model, bias=False)
+        self.w_v = nn.Linear(d_model, d_model, bias=False)
+        self.w_o = nn.Linear(d_model, d_model, bias=False)
         
         # Dropout (disabled for ONNX)
         self.dropout = nn.Dropout(dropout) if dropout > 0 else nn.Identity()

@@ -8,6 +8,7 @@ from .audio_processor import AudioProcessor
 from .codec_wrapper import CodecEncoder, CodecDecoder
 from .mask_generator import MaskGenerator
 from .mask_generator_onnx import ONNXMaskGenerator, FlexibleONNXMaskGenerator
+from .mask_generator_proper import build_mask_proper, ProperMaskGenerator
 from .transformer_wrapper import TransformerWrapper
 from .models import CoarseTransformer, C2FTransformer, VampNetTransformer
 from .weight_transfer import WeightTransferManager, complete_weight_transfer
@@ -35,6 +36,14 @@ from .validation import (
     benchmark_model
 )
 from .pipeline import VampNetONNXPipeline
+from .sampling import (
+    temperature_sample,
+    top_p_sample,
+    sample_from_logits,
+    batch_sample_from_logits,
+    iterative_sample
+)
+from .interface import Interface
 
 __all__ = [
     # Core components
@@ -44,6 +53,8 @@ __all__ = [
     'MaskGenerator',
     'ONNXMaskGenerator',
     'FlexibleONNXMaskGenerator',
+    'build_mask_proper',
+    'ProperMaskGenerator',
     'TransformerWrapper',
     
     # Models
@@ -79,5 +90,15 @@ __all__ = [
     'benchmark_model',
     
     # Pipeline
-    'VampNetONNXPipeline'
+    'VampNetONNXPipeline',
+    
+    # Sampling
+    'temperature_sample',
+    'top_p_sample',
+    'sample_from_logits',
+    'batch_sample_from_logits',
+    'iterative_sample',
+    
+    # Interface
+    'Interface'
 ]
